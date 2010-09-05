@@ -1,0 +1,1 @@
+ const unsigned char NordicLeague_ToolVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:NordicLeague Tool  PROJECT:NordicLeague Tool-5" "\n"; const double NordicLeague_ToolVersionNumber __attribute__ ((used)) = (double)5.;
