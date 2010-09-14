@@ -10,7 +10,6 @@
 #import <Carbon/Carbon.h>
 
 #define copyGameNameItem 5300
-//#define infoMenuItemTag 5010
 
 
 @implementation NordicLeagueToolController
@@ -28,7 +27,11 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	myHotKeyID.signature='up';
 	myHotKeyID.id=1;
-	
+
+	// Get version number
+	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+
+	// Register hotkey ctrl+option+space
 	RegisterEventHotKey(49, controlKey+optionKey, myHotKeyID, GetApplicationEventTarget(), 0, &myHotKeyRef);
 	
 	//Create the NSStatusBar and set its length
@@ -46,7 +49,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[atitle release];
 	
 	[statusItem setHighlightMode:YES];
-	[statusItem setToolTip:@"NordicLeague Tool v0.2"];
+	[statusItem setToolTip:version];
 	[statusItem setMenu:statusMenu];
 	[statusItem setEnabled:YES];
 	
@@ -79,6 +82,13 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 -(void)update
 {
 	// Introduce variables
+	
+	/**
+	 * This should work as well using:
+	 * NSString *urlContent = [NSString stringWithContentsOfURL:url];
+	 *
+	 * However, better error handling is NEEDED!
+	 */
 	
 	NSURL *url = [NSURL URLWithString:@"http://www.nordicleague.eu/api/games/s"];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -177,7 +187,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	NSAttributedString *atitle = [self formatString:playerCount];
 	
 	[statusItem setAttributedTitle:atitle];
-	[statusItem setToolTip:@"NordicLeague Tool v0.1"];
 	
 	if (autoCopy || bypassAutoCopy)
 	{
