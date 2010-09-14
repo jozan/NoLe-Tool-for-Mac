@@ -21,6 +21,9 @@
 
 NSString *gameName = @"No game name copied!";
 NSString *playerCount = @"NA";
+NSApplication *mySelf;
+NSSound *hotkeySuccess;
+NSSound *hotkeyFullOrError;
 
 NSPasteboard *pasteBoard;
 NSAttributedString *aString;
@@ -32,10 +35,16 @@ NSAttributedString *aString;
 
 
 BOOL isUpdated = NO;
+BOOL autoUpdate = YES;
+BOOL autoCopy = NO;
+BOOL bypassAutoCopy = NO;
+NSTimer *timer;
 
 -(IBAction)refresh:(id)sender;
 -(IBAction)copyToClipboard:(id)sender;
 -(IBAction)openAbout:(id)sender;
+-(IBAction)toggleAutoRefresh:(id)sender;
+-(IBAction)toggleAutoCopy:(id)sender;
 
 //@property (retain, nonatomic) ASIHTTPRequest *bigFetchRequest;
 
