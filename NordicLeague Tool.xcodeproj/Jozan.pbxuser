@@ -17,7 +17,7 @@
 		breakpoints = (
 			7C35E42C120D768A00E3E969 /* NordicLeagueToolController.m:39 */,
 			7C7ADD7512144EBD00F7A3BA /* NSDateFormatter.m:65 */,
-			7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:220 */,
+			7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:216 */,
 			7C14BB5D122275D400841B26 /* NordicLeagueToolController.m:21 */,
 			7C14BC081222C17D00841B26 /* NordicLeagueToolController.m:94 */,
 			7C14BC0A1222C18A00841B26 /* NordicLeagueToolController.m:99 */,
@@ -98,8 +98,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 306181826;
-			PBXWorkspaceStateSaveDate = 306181826;
+			PBXPerProjectTemplateStateSaveDate = 306266882;
+			PBXWorkspaceStateSaveDate = 306266882;
 		};
 		perUserProjectItems = {
 			7C0DC1B3120C272000DBBCED /* PBXTextBookmark */ = 7C0DC1B3120C272000DBBCED /* PBXTextBookmark */;
@@ -123,16 +123,15 @@
 			7C35E42F120D76A300E3E969 /* PBXTextBookmark */ = 7C35E42F120D76A300E3E969 /* PBXTextBookmark */;
 			7C35E434120D76A300E3E969 /* PBXTextBookmark */ = 7C35E434120D76A300E3E969 /* PBXTextBookmark */;
 			7C35E4B4120E02FB00E3E969 /* PBXTextBookmark */ = 7C35E4B4120E02FB00E3E969 /* PBXTextBookmark */;
-			7C73BD2C123FE48800DDBB67 /* PBXTextBookmark */ = 7C73BD2C123FE48800DDBB67 /* PBXTextBookmark */;
-			7C73BD2E123FE48800DDBB67 /* PBXTextBookmark */ = 7C73BD2E123FE48800DDBB67 /* PBXTextBookmark */;
-			7C73BD5D123FE8B900DDBB67 /* PlistBookmark */ = 7C73BD5D123FE8B900DDBB67 /* PlistBookmark */;
-			7C769DDB123FF6BC00F3815B /* PBXTextBookmark */ = 7C769DDB123FF6BC00F3815B /* PBXTextBookmark */;
-			7C769DDE123FF6BC00F3815B /* PlistBookmark */ = 7C769DDE123FF6BC00F3815B /* PlistBookmark */;
-			7C769DFF123FF6CE00F3815B /* PlistBookmark */ = 7C769DFF123FF6CE00F3815B /* PlistBookmark */;
 			7C7ADCCD12142DDE00F7A3BA /* PBXTextBookmark */ = 7C7ADCCD12142DDE00F7A3BA /* PBXTextBookmark */;
+			7CBFBE77124139490091D39B /* PBXTextBookmark */ = 7CBFBE77124139490091D39B /* PBXTextBookmark */;
+			7CBFBE79124139490091D39B /* PBXTextBookmark */ = 7CBFBE79124139490091D39B /* PBXTextBookmark */;
+			7CC99A031241313500B1AC18 /* PBXTextBookmark */ = 7CC99A031241313500B1AC18 /* PBXTextBookmark */;
 			7CD882FA120B6F8700BC5CA1 /* PBXTextBookmark */ = 7CD882FA120B6F8700BC5CA1 /* PBXTextBookmark */;
 			7CD88313120B79F400BC5CA1 /* PBXTextBookmark */ = 7CD88313120B79F400BC5CA1 /* PBXTextBookmark */;
 			7CD88322120B79F400BC5CA1 /* PBXTextBookmark */ = 7CD88322120B79F400BC5CA1 /* PBXTextBookmark */;
+			7CF373DA12414313007074C0 /* PlistBookmark */ = 7CF373DA12414313007074C0 /* PlistBookmark */;
+			7CF373E612414314007074C0 /* PlistBookmark */ = 7CF373E612414314007074C0 /* PlistBookmark */;
 			7CFF47F41212ECFC001F2F76 /* PBXTextBookmark */ = 7CFF47F41212ECFC001F2F76 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 7C2CACEE120ACEB2007B1B8E /* Source Control */;
@@ -538,9 +537,9 @@
 	};
 	7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {660, 4354}}";
-			sepNavSelRange = "{731, 0}";
-			sepNavVisRange = "{544, 693}";
+			sepNavIntBoundsRect = "{{0, 0}, {1728, 3906}}";
+			sepNavSelRange = "{6246, 0}";
+			sepNavVisRange = "{5997, 792}";
 			sepNavWindowFrame = "{{50, 105}, {765, 637}}";
 		};
 	};
@@ -714,72 +713,6 @@
 		vrLen = 165;
 		vrLoc = 0;
 	};
-	7C73BD2C123FE48800DDBB67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C14BB69122278CF00841B26 /* Fonts.h */;
-		name = "Fonts.h: 159";
-		rLen = 37;
-		rLoc = 4545;
-		rType = 0;
-		vrLen = 607;
-		vrLoc = 4158;
-	};
-	7C73BD2E123FE48800DDBB67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C14BB69122278CF00841B26 /* Fonts.h */;
-		name = "Fonts.h: 159";
-		rLen = 37;
-		rLoc = 4545;
-		rType = 0;
-		vrLen = 607;
-		vrLoc = 4158;
-	};
-	7C73BD5D123FE8B900DDBB67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleShortVersionString,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	7C769DDB123FF6BC00F3815B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		name = "NordicLeagueToolController.m: 31";
-		rLen = 0;
-		rLoc = 731;
-		rType = 0;
-		vrLen = 693;
-		vrLoc = 544;
-	};
-	7C769DDE123FF6BC00F3815B /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	7C769DFF123FF6CE00F3815B /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 2;
-		rLoc = 0;
-	};
 	7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {644, 1680}}";
@@ -815,7 +748,7 @@
 		modificationTime = 306181673.743072;
 		state = 0;
 	};
-	7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:220 */ = {
+	7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:216 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -827,10 +760,40 @@
 		functionName = "-validateMenuItem:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 220;
+		lineNumber = 216;
 		location = "NordicLeague Tool";
 		modificationTime = 306181673.4224969;
 		state = 2;
+	};
+	7CBFBE77124139490091D39B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C14BB69122278CF00841B26 /* Fonts.h */;
+		name = "Fonts.h: 159";
+		rLen = 37;
+		rLoc = 4545;
+		rType = 0;
+		vrLen = 547;
+		vrLoc = 4158;
+	};
+	7CBFBE79124139490091D39B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C14BB69122278CF00841B26 /* Fonts.h */;
+		name = "Fonts.h: 159";
+		rLen = 37;
+		rLoc = 4545;
+		rType = 0;
+		vrLen = 547;
+		vrLoc = 4158;
+	};
+	7CC99A031241313500B1AC18 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		name = "NordicLeagueToolController.m: 177";
+		rLen = 0;
+		rLoc = 6246;
+		rType = 0;
+		vrLen = 792;
+		vrLoc = 5997;
 	};
 	7CD882FA120B6F8700BC5CA1 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -862,6 +825,30 @@
 		vrLen = 45;
 		vrLoc = 0;
 	};
+	7CF373DA12414313007074C0 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleVersion,
+		);
+		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
+		rLen = 2;
+		rLoc = 0;
+	};
+	7CF373E612414314007074C0 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleVersion,
+		);
+		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
+		rLen = 2;
+		rLoc = 0;
+	};
 	7CFF47EB1212ECC4001F2F76 /* Credits.rtf */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {658, 287}}";
@@ -887,8 +874,9 @@
 	};
 	8D1107310486CEB800E47090 /* Info.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {658, 462}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {644, 462}}";
+			sepNavSelRange = "{613, 0}";
+			sepNavVisRange = "{478, 590}";
 			sepNavVisRect = "{{0, 141}, {658, 272}}";
 			sepNavWindowFrame = "{{394, 54}, {765, 637}}";
 		};

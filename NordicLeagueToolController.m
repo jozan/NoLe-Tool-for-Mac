@@ -174,7 +174,13 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	NSArray *resultArray = [responseString componentsSeparatedByString:@"|"];
 	
-	gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
+	/* Quick fix for gameName problem. It's root are in data where game name is from. */
+	NSString *dirtyGameName = [[NSString alloc]initWithString:[resultArray objectAtIndex:0]];
+	NSString *cleanGameName = [dirtyGameName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	[dirtyGameName release];
+	
+	//gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
+	gameName = [[NSString alloc] initWithString:cleanGameName];
 	playerCount = [resultArray objectAtIndex:1];
 	//playerCount = @"4";
 	
@@ -206,16 +212,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 		}
 	}
 	isUpdated = YES;
-	
-	
-	//currentDate = [[[NSDate alloc] date] init];
-	//[currentDate release];
-	
-	//NSDate *currentDate = [NSDate date];
-	//lastRefreshedTimestamp = [[NSDateFormatter alloc] dateToString:currentDate];
-	
-	//NSLog(@"Date: %@",lastRefreshedTimestamp);
-	
 	
 }
 
