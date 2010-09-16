@@ -3,10 +3,11 @@
 //  NordicLeague Tool
 //
 //  Created by Jozan (BNET: keepoz) on 5.8.2010.
-//  Copyright 2010 Jozan. All rights reserved.
+//  All rights reserved.
 //
 
 #import "NordicLeagueToolController.h"
+#import "PreferenceController.h"
 #import <Carbon/Carbon.h>
 
 #define copyGameNameItem 5300
@@ -113,7 +114,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[self update];
 }
 
-- (NSAttributedString *)formatString:(NSString *)str {
+- (NSAttributedString *)formatString:(NSString *)str
+{
 	
 	NSString *formattedString;
 	NSAttributedString *aString;
@@ -231,7 +233,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
  *       Builder.
  */
 
--(IBAction)copyToClipboard:(id)sender{
+-(IBAction)copyToClipboard:(id)sender
+{
 	
 	NSString *copyGameName = [[NSMutableString alloc] initWithString:gameName];
 	[copyGameName release];
@@ -246,12 +249,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	NSLog(copyGameName);
 }
 
--(IBAction)openAbout:(id)sender{
-	[NSApp activateIgnoringOtherApps:YES];
-	[NSApp orderFrontStandardAboutPanel:nil];
-}
-
--(IBAction)toggleAutoRefresh:(id)sender{
+-(IBAction)toggleAutoRefresh:(id)sender
+{
 	
 	if (autoUpdate) {
 		[timer invalidate];
@@ -272,7 +271,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 }
 
--(IBAction)toggleAutoCopy:(id)sender{
+-(IBAction)toggleAutoCopy:(id)sender
+{
 	
 	if (autoCopy) {
 		autoCopy = NO;
@@ -284,7 +284,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	}
 }
 
-- (BOOL)validateMenuItem:(NSMenuItem *)item {
+- (BOOL)validateMenuItem:(NSMenuItem *)item
+{
 	
 	NSInteger tag = [item tag];
 	if (tag == copyGameNameItem && isUpdated == NO)
@@ -303,6 +304,29 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 
     return noErr;
 	
+}
+
+/**
+ * Menu items that brings up window
+ * openAbout: opens About Panel
+ * showPreferencePanel: opens Preference Panel
+ */
+
+- (IBAction)openAbout:(id)sender
+{
+	[NSApp activateIgnoringOtherApps:YES];
+	[NSApp orderFrontStandardAboutPanel:nil];
+}
+
+- (IBAction)showPreferencePanel:(id)sender
+{
+	// Is preferenceController nil?
+	if ( ! preferenceController) {
+		preferenceController = [[PreferenceController alloc] init];
+	}
+	
+	NSLog(@"Showing %@", preferenceController);
+	[preferenceController showWindow:self];
 }
 
 @end

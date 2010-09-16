@@ -18,6 +18,8 @@
 		7C0DC1C6120C279D00DBBCED /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC1C4120C279D00DBBCED /* ASIInputStream.m */; };
 		7C2CACED120ACEB2007B1B8E /* NordicLeagueToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */; };
 		7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */; };
+		7C871E14124262400022EC1D /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C871E13124262400022EC1D /* PreferenceController.m */; };
+		7C871E5C12426E330022EC1D /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C871E5B12426E330022EC1D /* Preferences.xib */; };
 		7CFF47EC1212ECC4001F2F76 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF47EB1212ECC4001F2F76 /* Credits.rtf */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -50,6 +52,9 @@
 		7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NordicLeagueToolController.h; sourceTree = "<group>"; };
 		7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NordicLeagueToolController.m; sourceTree = "<group>"; };
 		7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatter.m; sourceTree = "<group>"; };
+		7C871E12124262400022EC1D /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		7C871E13124262400022EC1D /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		7C871E5B12426E330022EC1D /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		7CFF47EB1212ECC4001F2F76 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* NordicLeague Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NordicLeague Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +79,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7C871E5B12426E330022EC1D /* Preferences.xib */,
+				7C871E12124262400022EC1D /* PreferenceController.h */,
+				7C871E13124262400022EC1D /* PreferenceController.m */,
 				7C0DC1C9120C27BD00DBBCED /* ASI */,
 				7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */,
 				7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */,
@@ -218,6 +226,7 @@
 				7CFF47EC1212ECC4001F2F76 /* Credits.rtf in Resources */,
 				3523382A123C59010008F610 /* mmmm.wav in Resources */,
 				3523383C123C5B1F0008F610 /* doh.wav in Resources */,
+				7C871E5C12426E330022EC1D /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +242,7 @@
 				7C0DC19A120C245E00DBBCED /* ASIHTTPRequest.m in Sources */,
 				7C0DC1C6120C279D00DBBCED /* ASIInputStream.m in Sources */,
 				7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */,
+				7C871E14124262400022EC1D /* PreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
