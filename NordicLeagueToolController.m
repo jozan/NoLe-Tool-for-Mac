@@ -327,9 +327,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	NSLog(@"Showing %@", preferenceController);
 
-	//[preferenceController showWindow:self];
-	[preferenceController makeKeyAndOrderFront:nil];
-	//[preferencePane setTitle:@"TEST TITLE"];
+	[preferenceController showWindow:self];
 }
 
 @end
