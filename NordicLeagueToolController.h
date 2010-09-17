@@ -15,10 +15,10 @@
 	
 	/* Our outlets which allow us to access the interface */
 	IBOutlet NSMenu *statusMenu;
-
+	IBOutlet NSWindow *preferenceController;
 	NSStatusItem *statusItem;
 	
-	PreferenceController *preferenceController;
+	//PreferenceController *preferenceController;
 	
 }
 
