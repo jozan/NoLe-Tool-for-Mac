@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class ASIHTTPRequest;
 @class PreferenceController;
 
 @interface NordicLeagueToolController : NSObject {
@@ -16,26 +15,27 @@
 	/* Our outlets which allow us to access the interface */
 	IBOutlet NSMenu *statusMenu;
 	NSStatusItem *statusItem;
-	
+
 	PreferenceController *preferenceController;
-	
+	NSSound *hotkeySuccess;
+	NSSound *hotkeyFullOrError;	
 }
 
 NSString *gameName = @"No game name copied!";
 NSString *playerCount = @"NA";
-NSApplication *mySelf;
-NSSound *hotkeySuccess;
-NSSound *hotkeyFullOrError;
+NSApplication *mySelf = nil;
 
-NSPasteboard *pasteBoard;
-NSAttributedString *aString;
+
+NSPasteboard *pasteBoard = nil;
+NSAttributedString *aString = nil;
+NSMutableData *receivedData;
 
 
 BOOL isUpdated = NO;
 BOOL autoUpdate = YES;
 BOOL autoCopy = NO;
 BOOL bypassAutoCopy = NO;
-NSTimer *timer;
+NSTimer *timer = nil;
 
 - (IBAction)refresh:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;

@@ -11,11 +11,9 @@
 		3523371E123B81CD0008F610 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3523371D123B81CD0008F610 /* Carbon.framework */; };
 		3523382A123C59010008F610 /* mmmm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 35233829123C59010008F610 /* mmmm.wav */; };
 		3523383C123C5B1F0008F610 /* doh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3523383B123C5B1F0008F610 /* doh.wav */; };
-		7C0DC19A120C245E00DBBCED /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC197120C245E00DBBCED /* ASIHTTPRequest.m */; };
 		7C0DC19E120C252400DBBCED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC19D120C252400DBBCED /* SystemConfiguration.framework */; };
 		7C0DC1A2120C255000DBBCED /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A1120C255000DBBCED /* libz.1.1.3.dylib */; };
 		7C0DC1A4120C256C00DBBCED /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A3120C256C00DBBCED /* CoreServices.framework */; };
-		7C0DC1C6120C279D00DBBCED /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC1C4120C279D00DBBCED /* ASIInputStream.m */; };
 		7C2CACED120ACEB2007B1B8E /* NordicLeagueToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */; };
 		7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */; };
 		7C871E14124262400022EC1D /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C871E13124262400022EC1D /* PreferenceController.m */; };
@@ -38,17 +36,9 @@
 		3523371D123B81CD0008F610 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		35233829123C59010008F610 /* mmmm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mmmm.wav; sourceTree = "<group>"; };
 		3523383B123C5B1F0008F610 /* doh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doh.wav; sourceTree = "<group>"; };
-		7C0DC196120C245E00DBBCED /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
-		7C0DC197120C245E00DBBCED /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
-		7C0DC198120C245E00DBBCED /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
-		7C0DC199120C245E00DBBCED /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
 		7C0DC19D120C252400DBBCED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7C0DC1A1120C255000DBBCED /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		7C0DC1A3120C256C00DBBCED /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		7C0DC1C0120C275C00DBBCED /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
-		7C0DC1C2120C278800DBBCED /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
-		7C0DC1C4120C279D00DBBCED /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
-		7C0DC1C5120C279D00DBBCED /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
 		7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NordicLeagueToolController.h; sourceTree = "<group>"; };
 		7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NordicLeagueToolController.m; sourceTree = "<group>"; };
 		7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatter.m; sourceTree = "<group>"; };
@@ -82,7 +72,6 @@
 				7C871E5B12426E330022EC1D /* Preferences.xib */,
 				7C871E12124262400022EC1D /* PreferenceController.h */,
 				7C871E13124262400022EC1D /* PreferenceController.m */,
-				7C0DC1C9120C27BD00DBBCED /* ASI */,
 				7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */,
 				7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */,
 				3523371D123B81CD0008F610 /* Carbon.framework */,
@@ -163,21 +152,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7C0DC1C9120C27BD00DBBCED /* ASI */ = {
-			isa = PBXGroup;
-			children = (
-				7C0DC1C4120C279D00DBBCED /* ASIInputStream.m */,
-				7C0DC1C5120C279D00DBBCED /* ASIInputStream.h */,
-				7C0DC1C2120C278800DBBCED /* ASICacheDelegate.h */,
-				7C0DC1C0120C275C00DBBCED /* ASIProgressDelegate.h */,
-				7C0DC196120C245E00DBBCED /* ASIHTTPRequest.h */,
-				7C0DC197120C245E00DBBCED /* ASIHTTPRequest.m */,
-				7C0DC198120C245E00DBBCED /* ASIHTTPRequestConfig.h */,
-				7C0DC199120C245E00DBBCED /* ASIHTTPRequestDelegate.h */,
-			);
-			name = ASI;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,8 +213,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				7C2CACED120ACEB2007B1B8E /* NordicLeagueToolController.m in Sources */,
-				7C0DC19A120C245E00DBBCED /* ASIHTTPRequest.m in Sources */,
-				7C0DC1C6120C279D00DBBCED /* ASIInputStream.m in Sources */,
 				7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */,
 				7C871E14124262400022EC1D /* PreferenceController.m in Sources */,
 			);
