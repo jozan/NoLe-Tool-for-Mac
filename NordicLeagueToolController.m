@@ -12,7 +12,6 @@
 
 #define copyGameNameItem 5300
 
-
 @implementation NordicLeagueToolController
 
 OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData);
@@ -60,11 +59,14 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	hotkeyFullOrError =[NSSound soundNamed:@"doh"];
 	
 	[self update];
+	
 	timer = [NSTimer scheduledTimerWithTimeInterval:20.0
 											 target:self
 										   selector:@selector(update)
 										   userInfo:nil
 											repeats: YES];
+	
+
 }
 
 -(void)dealloc
@@ -76,6 +78,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[mySelf release];
 	[hotkeySuccess release];
 	[hotkeyFullOrError release];
+	[receivedData release];
 	
 	[super dealloc];
 }
@@ -91,12 +94,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	 * However, better error handling is NEEDED!
 	 */
 	
-	NSURL *url = [NSURL URLWithString:@"http://www.nordicleague.eu/api/games/s"];
-	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-	[request setDelegate:self];
-	[request startAsynchronous];
 	
-	
+	// Mark statusbar as updating
 	NSAttributedString *atitle = [[NSAttributedString alloc]
 								  initWithString:@"U!" attributes:
 								  [NSDictionary dictionaryWithObjectsAndKeys:
@@ -106,9 +105,129 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	[statusItem setAttributedTitle:atitle];
 	[atitle release];
+	
+	// Create the request.
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.nordicleague.eu/api/games/s"]
+											  cachePolicy:NSURLRequestReloadIgnoringCacheData
+										  timeoutInterval:5.0];
+	
+	// create the connection with the request and start loading the data
+	NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+	
+	if (theConnection) {
+		// Create the NSMutableData to hold the received data.
+		receivedData = [[NSMutableData data] retain];
+	} else {
+		// Inform the user that the connection failed.
+		NSLog(@"Connection error. This should never happend, it's handled by connection:didFailWithError.");
+		[self processError:@"EC"];
+	}
+	
 }
 
- 
+-(void)processData:(NSString*)data
+{
+	if ([data length] < 1)
+		return;
+	
+	NSLog(data);
+	
+	NSArray *resultArray = [data componentsSeparatedByString:@"|"];
+	
+	if ([resultArray count] != 3)
+	{
+		[self processError:@"-"];
+		return;
+	}
+	/* Quick fix for gameName problem. It's root are in data where game name is from. */
+	NSString *dirtyGameName = [[NSString alloc]initWithString:[resultArray objectAtIndex:0]];
+	NSString *cleanGameName = [dirtyGameName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	[dirtyGameName release];
+	
+	//gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
+	gameName = [[NSString alloc] initWithString:cleanGameName];
+	playerCount = [resultArray objectAtIndex:1];
+	//playerCount = @"4";
+	
+	
+	NSLog(@"Game name: %@", gameName);
+	NSLog(@"Player count: %@", playerCount);
+	
+	
+	// Display player count on status bar	
+	NSAttributedString *atitle = [self formatString:playerCount];
+	
+	[statusItem setAttributedTitle:atitle];
+	
+	if (autoCopy || bypassAutoCopy)
+	{
+		// Automatically copy game name to clipboard
+		pasteBoard = [NSPasteboard generalPasteboard];
+		[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
+		[pasteBoard setString:gameName forType:NSStringPboardType];
+		
+		if (bypassAutoCopy)
+		{
+			if ([playerCount isEqualToString:@"10"])
+				[hotkeyFullOrError play];
+			else
+				[hotkeySuccess play];
+			
+			bypassAutoCopy = NO;
+		}
+	}
+	isUpdated = YES;	
+}
+
+-(void)processError:(NSString *)error
+{
+	[statusItem setTitle:error];
+	isUpdated = NO;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    [receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // do something with the data
+    // receivedData is declared as a method instance elsewhere
+	
+    // NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
+	
+	[self processData:[[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding]];
+	
+    // release the connection, and the data object
+    [connection release];
+	[receivedData release];
+}
+		 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	// This method is called when the server has determined that it
+	// has enough information to create the NSURLResponse.
+
+	// It can be called multiple times, for example in the case of
+	// redirect, so each time we reset the data.
+
+	[receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+	[connection release];
+    [receivedData release];
+
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+	
+	[self processError:@"E4"];
+}
+
 -(IBAction)refresh:(id)sender
 {
 	[self update];
@@ -167,63 +286,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	//[aString release];
 	return aString;
-}
-	
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-	// Fetch text data to NSString
-	NSString *responseString = [request responseString];
-	
-	NSArray *resultArray = [responseString componentsSeparatedByString:@"|"];
-	
-	/* Quick fix for gameName problem. It's root are in data where game name is from. */
-	NSString *dirtyGameName = [[NSString alloc]initWithString:[resultArray objectAtIndex:0]];
-	NSString *cleanGameName = [dirtyGameName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	[dirtyGameName release];
-	
-	//gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
-	gameName = [[NSString alloc] initWithString:cleanGameName];
-	playerCount = [resultArray objectAtIndex:1];
-	//playerCount = @"4";
-	
-	
-	NSLog(@"Game name: %@", gameName);
-	NSLog(@"Player count: %@", playerCount);
-
-	
-	// Display player count on status bar	
-	NSAttributedString *atitle = [self formatString:playerCount];
-	
-	[statusItem setAttributedTitle:atitle];
-	
-	if (autoCopy || bypassAutoCopy)
-	{
-	// Automatically copy game name to clipboard
-		pasteBoard = [NSPasteboard generalPasteboard];
-		[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
-		[pasteBoard setString:gameName forType:NSStringPboardType];
-		
-		if (bypassAutoCopy)
-		{
-			if ([playerCount isEqualToString:@"10"])
-				[hotkeyFullOrError play];
-			else
-				[hotkeySuccess play];
-			
-			bypassAutoCopy = NO;
-		}
-	}
-	isUpdated = YES;
-	
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-	//NSError *error = [request error];
-	[statusItem setTitle:@"E4"];
-	//[statusItem setToolTip:error];
-	
-	isUpdated = NO;
 }
 
 /**
