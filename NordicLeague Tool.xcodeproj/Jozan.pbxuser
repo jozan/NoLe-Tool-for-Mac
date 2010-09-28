@@ -98,8 +98,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 307353637;
-			PBXWorkspaceStateSaveDate = 307353637;
+			PBXPerProjectTemplateStateSaveDate = 307354797;
+			PBXWorkspaceStateSaveDate = 307354797;
 		};
 		perUserProjectItems = {
 			7C0DC1B3120C272000DBBCED = 7C0DC1B3120C272000DBBCED /* PBXTextBookmark */;
@@ -129,6 +129,8 @@
 			7C871E28124267F10022EC1D = 7C871E28124267F10022EC1D /* PBXTextBookmark */;
 			7C871E2A124267F10022EC1D = 7C871E2A124267F10022EC1D /* PBXTextBookmark */;
 			7C871EDD124296930022EC1D = 7C871EDD124296930022EC1D /* PBXTextBookmark */;
+			7CA24D011251DCB600FBD6B6 /* PlistBookmark */ = 7CA24D011251DCB600FBD6B6 /* PlistBookmark */;
+			7CA24D021251DCB600FBD6B6 /* PlistBookmark */ = 7CA24D021251DCB600FBD6B6 /* PlistBookmark */;
 			7CBC2806124352F7004E1846 = 7CBC2806124352F7004E1846 /* PBXTextBookmark */;
 			7CBFBE77124139490091D39B = 7CBFBE77124139490091D39B /* PBXTextBookmark */;
 			7CBFBE79124139490091D39B = 7CBFBE79124139490091D39B /* PBXTextBookmark */;
@@ -678,12 +680,6 @@
 		name = NSDateFormatter.m;
 		path = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/NSDateFormatter.m";
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {644, 1694}}";
-			sepNavSelRange = "{265, 0}";
-			sepNavVisRange = "{0, 346}";
-			sepNavWindowFrame = "{{51, 61}, {882, 715}}";
-		};
 	};
 	7C7ADCCD12142DDE00F7A3BA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -794,6 +790,28 @@
 		rType = 0;
 		vrLen = 359;
 		vrLoc = 100;
+	};
+	7CA24D011251DCB600FBD6B6 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	7CA24D021251DCB600FBD6B6 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
 	};
 	7CBC2806124352F7004E1846 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

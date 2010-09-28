@@ -276,8 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>14</integer>
-									<integer>10</integer>
+									<integer>13</integer>
+									<integer>9</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -326,6 +326,10 @@
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
 										<string>Info.plist</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>7CA24D021251DCB600FBD6B6</string>
 										<key>history</key>
 										<array>
 											<string>7C2CAD46120ADFD0007B1B8E</string>
@@ -339,11 +343,9 @@
 											<string>7C35E4B4120E02FB00E3E969</string>
 											<string>7C0FFA421213040E002B06DA</string>
 											<string>7CBFBE77124139490091D39B</string>
-											<string>7C871DE712425ADF0022EC1D</string>
 											<string>7C871EDD124296930022EC1D</string>
-											<string>7CBC2806124352F7004E1846</string>
 											<string>7C2F5B951245934500820F3E</string>
-											<string>7CC8BB4312459569006BCFB1</string>
+											<string>7CA24D011251DCB600FBD6B6</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -359,7 +361,6 @@
 											<string>7C0DC224120C290900DBBCED</string>
 											<string>7C0DC225120C290900DBBCED</string>
 											<string>7C35E434120D76A300E3E969</string>
-											<string>7C7ADCCD12142DDE00F7A3BA</string>
 											<string>7CBFBE79124139490091D39B</string>
 											<string>7C871DE912425ADF0022EC1D</string>
 											<string>7C871E28124267F10022EC1D</string>
@@ -422,9 +423,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7CC8BB6512459604006BCFB1</string>
+				<string>7CA24D031251DCB600FBD6B6</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7CC8BB6612459604006BCFB1</string>
+				<string>7CA24D041251DCB600FBD6B6</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -560,9 +561,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>7C2CACFB120AD654007B1B8E</string>
 		<string>/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/NordicLeague Tool.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -604,6 +602,8 @@
 							<string>211pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -643,7 +643,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7C2CACFB120AD654007B1B8E</string>
-				<string>7CC8BB6712459604006BCFB1</string>
+				<string>7CA24CD31251D9AC00FBD6B6</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -763,13 +763,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>7CC8BB6812459604006BCFB1</string>
+				<string>7CA24CE61251DCAD00FBD6B6</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>7CC8BB6912459604006BCFB1</string>
-				<string>7CC8BB6A12459604006BCFB1</string>
-				<string>7CC8BB6B12459604006BCFB1</string>
-				<string>7CC8BB6C12459604006BCFB1</string>
-				<string>7CC8BB6D12459604006BCFB1</string>
+				<string>7CA24CE71251DCAD00FBD6B6</string>
+				<string>7CA24CE81251DCAD00FBD6B6</string>
+				<string>7CA24CE91251DCAD00FBD6B6</string>
+				<string>7CA24CEA1251DCAD00FBD6B6</string>
+				<string>7CA24CEB1251DCAD00FBD6B6</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -931,7 +931,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>7CC8BB6E12459604006BCFB1</string>
+				<string>7CA24CEC1251DCAD00FBD6B6</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
