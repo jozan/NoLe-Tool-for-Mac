@@ -15,7 +15,6 @@
 		7C0DC1A2120C255000DBBCED /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A1120C255000DBBCED /* libz.1.1.3.dylib */; };
 		7C0DC1A4120C256C00DBBCED /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A3120C256C00DBBCED /* CoreServices.framework */; };
 		7C2CACED120ACEB2007B1B8E /* NordicLeagueToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */; };
-		7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */; };
 		7C871E14124262400022EC1D /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C871E13124262400022EC1D /* PreferenceController.m */; };
 		7C871E5C12426E330022EC1D /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C871E5B12426E330022EC1D /* Preferences.xib */; };
 		7CFF47EC1212ECC4001F2F76 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF47EB1212ECC4001F2F76 /* Credits.rtf */; };
@@ -41,7 +40,6 @@
 		7C0DC1A3120C256C00DBBCED /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NordicLeagueToolController.h; sourceTree = "<group>"; };
 		7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NordicLeagueToolController.m; sourceTree = "<group>"; };
-		7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatter.m; sourceTree = "<group>"; };
 		7C871E12124262400022EC1D /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		7C871E13124262400022EC1D /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		7C871E5B12426E330022EC1D /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */,
 				7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */,
 				3523371D123B81CD0008F610 /* Carbon.framework */,
-				7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				7C2CACED120ACEB2007B1B8E /* NordicLeagueToolController.m in Sources */,
-				7C7ADCC412142CC800F7A3BA /* NSDateFormatter.m in Sources */,
 				7C871E14124262400022EC1D /* PreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

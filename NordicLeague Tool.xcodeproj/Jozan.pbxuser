@@ -98,8 +98,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 306550264;
-			PBXWorkspaceStateSaveDate = 306550264;
+			PBXPerProjectTemplateStateSaveDate = 307353637;
+			PBXWorkspaceStateSaveDate = 307353637;
 		};
 		perUserProjectItems = {
 			7C0DC1B3120C272000DBBCED = 7C0DC1B3120C272000DBBCED /* PBXTextBookmark */;
@@ -129,13 +129,10 @@
 			7C871E28124267F10022EC1D = 7C871E28124267F10022EC1D /* PBXTextBookmark */;
 			7C871E2A124267F10022EC1D = 7C871E2A124267F10022EC1D /* PBXTextBookmark */;
 			7C871EDD124296930022EC1D = 7C871EDD124296930022EC1D /* PBXTextBookmark */;
-			7CB191EC1245954C005F083D = 7CB191EC1245954C005F083D /* PlistBookmark */;
-			7CB191ED1245954C005F083D = 7CB191ED1245954C005F083D /* PlistBookmark */;
 			7CBC2806124352F7004E1846 = 7CBC2806124352F7004E1846 /* PBXTextBookmark */;
 			7CBFBE77124139490091D39B = 7CBFBE77124139490091D39B /* PBXTextBookmark */;
 			7CBFBE79124139490091D39B = 7CBFBE79124139490091D39B /* PBXTextBookmark */;
 			7CC8BB4312459569006BCFB1 = 7CC8BB4312459569006BCFB1 /* PlistBookmark */;
-			7CC8BB4412459569006BCFB1 = 7CC8BB4412459569006BCFB1 /* PlistBookmark */;
 			7CD882FA120B6F8700BC5CA1 = 7CD882FA120B6F8700BC5CA1 /* PBXTextBookmark */;
 			7CD88313120B79F400BC5CA1 = 7CD88313120B79F400BC5CA1 /* PBXTextBookmark */;
 			7CD88322120B79F400BC5CA1 = 7CD88322120B79F400BC5CA1 /* PBXTextBookmark */;
@@ -470,9 +467,9 @@
 	};
 	7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {644, 700}}";
+			sepNavIntBoundsRect = "{{0, 0}, {644, 686}}";
 			sepNavSelRange = "{357, 0}";
-			sepNavVisRange = "{163, 427}";
+			sepNavVisRange = "{463, 354}";
 			sepNavWindowFrame = "{{412, 97}, {750, 558}}";
 		};
 	};
@@ -675,6 +672,12 @@
 		vrLoc = 0;
 	};
 	7C7ADCC312142CC800F7A3BA /* NSDateFormatter.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = NSDateFormatter.m;
+		path = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/NSDateFormatter.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {644, 1694}}";
 			sepNavSelRange = "{265, 0}";
@@ -792,30 +795,6 @@
 		vrLen = 359;
 		vrLoc = 100;
 	};
-	7CB191EC1245954C005F083D /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 8;
-		rLoc = 0;
-	};
-	7CB191ED1245954C005F083D /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 8;
-		rLoc = 0;
-	};
 	7CBC2806124352F7004E1846 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
@@ -847,18 +826,6 @@
 		vrLoc = 4158;
 	};
 	7CC8BB4312459569006BCFB1 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 8;
-		rLoc = 0;
-	};
-	7CC8BB4412459569006BCFB1 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
 		fallbackIsa = PBXBookmark;
