@@ -79,6 +79,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[hotkeySuccess release];
 	[hotkeyFullOrError release];
 	[receivedData release];
+	[preferenceController release];
 	
 	[super dealloc];
 }
@@ -388,8 +389,11 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	}
 	
 	NSLog(@"Showing %@", preferenceController);
-
+	
+	[NSApp activateIgnoringOtherApps:YES];
 	[preferenceController showWindow:self];
+	[[self window] makeKeyAndOrderFront:self];
+	
 }
 
 @end

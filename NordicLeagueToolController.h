@@ -14,6 +14,7 @@
 	
 	/* Our outlets which allow us to access the interface */
 	IBOutlet NSMenu *statusMenu;
+	IBOutlet NSWindow *window;
 	NSStatusItem *statusItem;
 
 	PreferenceController *preferenceController;
