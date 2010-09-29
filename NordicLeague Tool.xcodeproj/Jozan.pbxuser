@@ -98,8 +98,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 307445273;
-			PBXWorkspaceStateSaveDate = 307445273;
+			PBXPerProjectTemplateStateSaveDate = 307452484;
+			PBXWorkspaceStateSaveDate = 307452484;
 		};
 		perUserProjectItems = {
 			7C0DC1B3120C272000DBBCED = 7C0DC1B3120C272000DBBCED /* PBXTextBookmark */;
@@ -110,21 +110,13 @@
 			7C0DC220120C290900DBBCED = 7C0DC220120C290900DBBCED /* PBXTextBookmark */;
 			7C0DC224120C290900DBBCED = 7C0DC224120C290900DBBCED /* PBXTextBookmark */;
 			7C0DC225120C290900DBBCED = 7C0DC225120C290900DBBCED /* PBXTextBookmark */;
-			7C1B895D12533BDF00103D5A = 7C1B895D12533BDF00103D5A /* PlistBookmark */;
-			7C1B895E12533BDF00103D5A = 7C1B895E12533BDF00103D5A /* PBXTextBookmark */;
-			7C1B895F12533BDF00103D5A = 7C1B895F12533BDF00103D5A /* PBXTextBookmark */;
 			7C1B896812533CF100103D5A = 7C1B896812533CF100103D5A /* PBXTextBookmark */;
 			7C1B896A12533CF100103D5A = 7C1B896A12533CF100103D5A /* PBXTextBookmark */;
-			7C1B896C12533CF100103D5A = 7C1B896C12533CF100103D5A /* PBXTextBookmark */;
-			7C1B896D12533CF100103D5A = 7C1B896D12533CF100103D5A /* PlistBookmark */;
-			7C1B896E12533CF100103D5A = 7C1B896E12533CF100103D5A /* PBXTextBookmark */;
-			7C1B896F12533CF100103D5A = 7C1B896F12533CF100103D5A /* PlistBookmark */;
-			7C1B897012533CF100103D5A = 7C1B897012533CF100103D5A /* PBXTextBookmark */;
 			7C1B897E12533DE500103D5A = 7C1B897E12533DE500103D5A /* PBXTextBookmark */;
-			7C1B897F12533DE500103D5A = 7C1B897F12533DE500103D5A /* PlistBookmark */;
-			7C1B898012533DE500103D5A = 7C1B898012533DE500103D5A /* PBXTextBookmark */;
-			7C1B898212533E0F00103D5A = 7C1B898212533E0F00103D5A /* PlistBookmark */;
-			7C1B899812533E2100103D5A /* PlistBookmark */ = 7C1B899812533E2100103D5A /* PlistBookmark */;
+			7C1B89AA12535A3200103D5A = 7C1B89AA12535A3200103D5A /* PlistBookmark */;
+			7C1B89AB12535A3200103D5A = 7C1B89AB12535A3200103D5A /* PBXBookmark */;
+			7C1B89AC12535A3200103D5A = 7C1B89AC12535A3200103D5A /* PlistBookmark */;
+			7C1B89AD12535A3200103D5A = 7C1B89AD12535A3200103D5A /* PBXBookmark */;
 			7C2CACFF120AD677007B1B8E = 7C2CACFF120AD677007B1B8E /* PBXTextBookmark */;
 			7C2CAD00120AD677007B1B8E = 7C2CAD00120AD677007B1B8E /* PBXTextBookmark */;
 			7C2CAD01120AD677007B1B8E = 7C2CAD01120AD677007B1B8E /* PBXTextBookmark */;
@@ -437,37 +429,6 @@
 		modificationTime = 306355954.854753;
 		state = 0;
 	};
-	7C1B895D12533BDF00103D5A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	7C1B895E12533BDF00103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		name = "NordicLeagueToolController.m: 301";
-		rLen = 0;
-		rLoc = 9673;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 9141;
-	};
-	7C1B895F12533BDF00103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */;
-		name = "NordicLeagueToolController.h: 17";
-		rLen = 0;
-		rLoc = 361;
-		rType = 0;
-		vrLen = 463;
-		vrLoc = 138;
-	};
 	7C1B896812533CF100103D5A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 089C165DFE840E0CC02AAC07 /* English */;
@@ -488,59 +449,6 @@
 		vrLen = 402;
 		vrLoc = 138;
 	};
-	7C1B896C12533CF100103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		name = "NordicLeagueToolController.m: 393";
-		rLen = 0;
-		rLoc = 11589;
-		rType = 0;
-		vrLen = 393;
-		vrLoc = 11118;
-	};
-	7C1B896D12533CF100103D5A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	7C1B896E12533CF100103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C165DFE840E0CC02AAC07 /* English */;
-		name = "InfoPlist.strings: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 45;
-		vrLoc = 0;
-	};
-	7C1B896F12533CF100103D5A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			LSUIElement,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	7C1B897012533CF100103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */;
-		name = "NordicLeagueToolController.h: 17";
-		rLen = 0;
-		rLoc = 361;
-		rType = 0;
-		vrLen = 402;
-		vrLoc = 138;
-	};
 	7C1B897E12533DE500103D5A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
@@ -551,51 +459,37 @@
 		vrLen = 361;
 		vrLoc = 11236;
 	};
-	7C1B897F12533DE500103D5A /* PlistBookmark */ = {
+	7C1B89AA12535A3200103D5A /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
 		fallbackIsa = PBXBookmark;
 		isK = 0;
 		kPath = (
-			LSUIElement,
+			CFBundleIconFile,
 		);
 		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	7C1B898012533DE500103D5A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		name = "NordicLeagueToolController.m: 396";
-		rLen = 0;
-		rLoc = 11589;
-		rType = 0;
-		vrLen = 361;
-		vrLoc = 11236;
+	7C1B89AB12535A3200103D5A /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7C1B89A7125359CC00103D5A /* noletool.icns */;
 	};
-	7C1B898212533E0F00103D5A /* PlistBookmark */ = {
+	7C1B89AC12535A3200103D5A /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
 		fallbackIsa = PBXBookmark;
 		isK = 0;
 		kPath = (
-			LSUIElement,
+			CFBundleIconFile,
 		);
 		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	7C1B899812533E2100103D5A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			LSUIElement,
-		);
-		name = "/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
+	7C1B89AD12535A3200103D5A /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7C1B89A7125359CC00103D5A /* noletool.icns */;
 	};
 	7C2CACE7120ACEA5007B1B8E /* NordicLeague Tool */ = {
 		isa = PBXExecutable;
