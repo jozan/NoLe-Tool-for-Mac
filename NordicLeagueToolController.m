@@ -16,6 +16,19 @@
 
 OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData);
 
++(void)initialize
+{
+	// Create a dictionary
+	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
+	
+	// Put default values in the dictionary
+	[defaultValues setObject:[NSNumber numberWithFloat:20.0] forKey:NLTRefreshIntervalKey];
+	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:NLTGameNameKey];
+	
+	// Register the dictionary of defaults
+	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+}
+
 -(void)awakeFromNib
 {
 	EventHotKeyRef	myHotKeyRef;
@@ -60,11 +73,13 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	[self update];
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:20.0
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
 											 target:self
 										   selector:@selector(update)
 										   userInfo:nil
-											repeats: YES];
+											repeats:YES];
 	
 
 }
@@ -86,6 +101,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 
 -(void)update
 {
+	//NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+	
 	// Introduce variables
 	
 	/**
@@ -323,7 +340,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	}
 	else {
 		[self update];
-		timer = [NSTimer scheduledTimerWithTimeInterval:20.0
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
 												 target:self
 											   selector:@selector(update)
 											   userInfo:nil
@@ -392,8 +410,12 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[preferenceController showWindow:self];
-	[[self window] makeKeyAndOrderFront:self];
 	
 }
 
+@synthesize statusMenu;
+@synthesize statusItem;
+@synthesize preferenceController;
+@synthesize hotkeySuccess;
+@synthesize hotkeyFullOrError;
 @end

@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>noletool.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>fi.jozan.${PRODUCT_NAME:identifier}</string>
+	<string>eu.nordicleague.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.2.0</string>
 	<key>CFBundleVersion</key>
-	<string>29</string>
+	<string>30</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

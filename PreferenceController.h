@@ -8,15 +8,25 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString * const NLTRefreshIntervalKey;
+extern NSString * const NLTGameNameKey;
 
 @interface PreferenceController : NSWindowController {
-	IBOutlet id refreshTimeValue;
-	IBOutlet NSSlider *refreshTimeSlider;
+	IBOutlet id refreshTimeLabel;
+	IBOutlet NSSlider * refreshTimeSlider;
+	IBOutlet NSWindow *window;
 }
+
+- (float)refreshTimeIntervalValue;
+- (BOOL)gameNameValue;
+
+- (void)savePrefs;
 
 - (IBAction)sliderChangeRefreshTime:(id)sender;
 - (IBAction)changeGameToBeCopied:(id)sender;
 - (IBAction)restoreSettings:(id)sender;
-- (IBAction)saveSettings:(id)sender;
+- (IBAction)saveAndClose:(id)sender;
 
+@property (retain) id refreshTimeLabel;
+@property (retain) NSSlider * refreshTimeSlider;
 @end

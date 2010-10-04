@@ -14,10 +14,10 @@
 	
 	/* Our outlets which allow us to access the interface */
 	IBOutlet NSMenu *statusMenu;
-	IBOutlet NSWindow *window;
 	NSStatusItem *statusItem;
 
 	PreferenceController *preferenceController;
+	
 	NSSound *hotkeySuccess;
 	NSSound *hotkeyFullOrError;	
 }
@@ -38,6 +38,10 @@ BOOL autoCopy = NO;
 BOOL bypassAutoCopy = NO;
 NSTimer *timer = nil;
 
+- (void)update;
+- (void)processError:(NSString *)error;
+- (NSAttributedString *)formatString:(NSString *)str;
+
 - (IBAction)refresh:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;
 - (IBAction)openAbout:(id)sender;
@@ -47,4 +51,9 @@ NSTimer *timer = nil;
 // Show Preference Panel
 - (IBAction)showPreferencePanel:(id)sender;
 
+@property (retain) NSMenu *statusMenu;
+@property (retain) NSStatusItem *statusItem;
+@property (retain) PreferenceController *preferenceController;
+@property (retain) NSSound *hotkeySuccess;
+@property (retain) NSSound *hotkeyFullOrError;
 @end

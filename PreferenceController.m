@@ -8,6 +8,8 @@
 
 #import "PreferenceController.h"
 
+NSString * const NLTRefreshIntervalKey = @"RefreshTimeInterval";
+NSString * const NLTGameNameKey = @"GameNameToCopy";
 
 @implementation PreferenceController
 
@@ -19,29 +21,71 @@
 	return self;
 }
 
+- (float)refreshTimeIntervalValue
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	float refreshTime = [defaults floatForKey:NLTRefreshIntervalKey];	
+	return refreshTime;
+}
+
+// NOT WORKING
+- (BOOL)gameNameValue
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	return [defaults boolForKey:NLTGameNameKey];
+}
+
 - (void)windowDidLoad
 {
 	NSLog(@"Nib file is loaded");
+	
+	CGFloat interval = [self refreshTimeIntervalValue];
+	
+	[refreshTimeSlider setFloatValue:interval];
+	[refreshTimeLabel setFloatValue:interval];
 
+}
+
+- (void)savePrefs
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setFloat:[refreshTimeLabel floatValue] forKey:NLTRefreshIntervalKey];
+	[defaults synchronize];
 }
 	
 - (IBAction)sliderChangeRefreshTime:(id)sender;
-{
-	// Changes the number next to slider.
-	[refreshTimeValue setIntValue:[refreshTimeSlider intValue]];
+{	
+	// Update defaults
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setFloat:[refreshTimeLabel floatValue] forKey:NLTRefreshIntervalKey];
 	
+	CGFloat interval = [self refreshTimeIntervalValue];
+	[refreshTimeSlider setFloatValue:interval];
+	[refreshTimeLabel setFloatValue:interval];
+
 	// Floods the console!
 	//NSLog(@"RefreshTimeValue changed: %i", [refreshTimeSlider intValue]);
 }
 
-- (IBAction)saveSettings:(id)sender
+- (IBAction)saveAndClose:(id)sender
 {
 	NSLog(@"Settings saved. At least button got pressed.");
+	[self savePrefs];
+	[window close];
 }
 
 - (IBAction)restoreSettings:(id)sender
 {
 	NSLog(@"Settings restored to default. At least button got pressed.");
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setFloat:20.0	forKey:NLTRefreshIntervalKey];
+	[defaults synchronize];
+	
+	CGFloat interval = [self refreshTimeIntervalValue];
+	[refreshTimeSlider setFloatValue:interval];
+	[refreshTimeLabel setFloatValue:interval];
 }
 
+@synthesize refreshTimeLabel;
+@synthesize refreshTimeSlider;
 @end
