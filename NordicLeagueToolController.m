@@ -165,7 +165,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	//gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
 	gameName = [[NSString alloc] initWithString:cleanGameName];
 	playerCount = [resultArray objectAtIndex:1];
-	//playerCount = @"4";
 	
 	
 	NSLog(@"Game name: %@", gameName);
@@ -175,6 +174,10 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	// Display player count on status bar	
 	NSAttributedString *atitle = [self formatString:playerCount];
 	
+	// Release memory
+	[aString release];
+	[playerCount release];
+	
 	[statusItem setAttributedTitle:atitle];
 	
 	if (autoCopy || bypassAutoCopy)
@@ -183,6 +186,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 		pasteBoard = [NSPasteboard generalPasteboard];
 		[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
 		[pasteBoard setString:gameName forType:NSStringPboardType];
+		[gameName release];
 		
 		if (bypassAutoCopy)
 		{
@@ -304,6 +308,8 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	//[aString release];
 	return aString;
+	
+	[gameName release];
 }
 
 /**
@@ -325,7 +331,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	pasteBoard = [NSPasteboard generalPasteboard];
 	[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
 	[pasteBoard setString:copyGameName forType:NSStringPboardType];
-	
+
 	NSLog(copyGameName);
 }
 
@@ -362,6 +368,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	else {
 		autoCopy = YES;
 		[sender setState:NSOnState];
+		[self update];
 	}
 }
 

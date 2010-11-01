@@ -299,7 +299,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>220 170 913 523 0 0 1280 778 </string>
+						<string>251 168 913 523 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -310,8 +310,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -326,10 +324,6 @@
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
 										<string>NordicLeagueToolController.m</string>
-										<key>_historyCapacity</key>
-										<integer>0</integer>
-										<key>bookmark</key>
-										<string>7C29AC1B127EF6EF0092DF68</string>
 										<key>history</key>
 										<array>
 											<string>7C2CAD46120ADFD0007B1B8E</string>
@@ -345,11 +339,11 @@
 											<string>7C23D08312573CEB00DF0CA5</string>
 											<string>7C56E128125A67BD00A8822B</string>
 											<string>7CCFC367125A6C810081A6B1</string>
-											<string>7CCFC43A125A95AC0081A6B1</string>
 											<string>7CCFC44F125A99CB0081A6B1</string>
-											<string>7CCFC450125A99CB0081A6B1</string>
 											<string>7C29AC13127EF5490092DF68</string>
-											<string>7C29AC14127EF5490092DF68</string>
+											<string>7C29AC2E127F0F010092DF68</string>
+											<string>7C29AC2F127F0F010092DF68</string>
+											<string>7C29AC30127F0F010092DF68</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -371,8 +365,6 @@
 											<string>7C871E2A124267F10022EC1D</string>
 											<string>7C2F5B971245934500820F3E</string>
 											<string>7C23D08812573CEB00DF0CA5</string>
-											<string>7C29AC15127EF5490092DF68</string>
-											<string>7C29AC16127EF5490092DF68</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -386,7 +378,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {705, 304}}</string>
 								<key>RubberWindowFrame</key>
-								<string>220 170 913 523 0 0 1280 778 </string>
+								<string>251 168 913 523 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -394,6 +386,8 @@
 							<string>304pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -406,7 +400,7 @@
 								<key>Frame</key>
 								<string>{{0, 309}, {705, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>220 170 913 523 0 0 1280 778 </string>
+								<string>251 168 913 523 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -430,9 +424,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7C29AB46127EF3FA0092DF68</string>
+				<string>7C29AC4A127F0F690092DF68</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7C29AB47127EF3FA0092DF68</string>
+				<string>7C29AC4B127F0F690092DF68</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -568,13 +562,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>7C2CACFB120AD654007B1B8E</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/Jozan/Soodailua/LoveMachineApps/NoLe-Tool-for-Mac/NordicLeague Tool.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>220 170 913 523 0 0 1280 778 </string>
+	<string>251 168 913 523 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
