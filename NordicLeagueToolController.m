@@ -87,9 +87,9 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 -(void)dealloc
 {   
 	[statusItem release];
-	//[gameName release];
-	//[playerCount release];
-	//[aString release];
+	[gameName release];
+	[playerCount release];
+	[aString release];
 	[mySelf release];
 	[hotkeySuccess release];
 	[hotkeyFullOrError release];
