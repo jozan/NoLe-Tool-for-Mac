@@ -38,6 +38,9 @@ BOOL autoCopy = NO;
 BOOL bypassAutoCopy = NO;
 NSTimer *timer = nil;
 
+- (void)setTimer;
+- (void)unsetTimer;
+
 - (void)update;
 - (void)processError:(NSString *)error;
 - (NSAttributedString *)formatString:(NSString *)str;

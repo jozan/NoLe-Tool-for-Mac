@@ -17,19 +17,19 @@
 		breakpoints = (
 			7C35E42C120D768A00E3E969 /* NordicLeagueToolController.m:53 */,
 			7C7ADD7512144EBD00F7A3BA /* NSDateFormatter.m:65 */,
-			7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:240 */,
+			7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:234 */,
 			7C14BB5D122275D400841B26 /* NordicLeagueToolController.m:35 */,
-			7C14BC081222C17D00841B26 /* NordicLeagueToolController.m:113 */,
-			7C14BC0A1222C18A00841B26 /* NordicLeagueToolController.m:118 */,
-			7C14BC0C1222C18B00841B26 /* NordicLeagueToolController.m:122 */,
-			7C14BC0E1222C19000841B26 /* NordicLeagueToolController.m:128 */,
-			7C14BC101222C19200841B26 /* NordicLeagueToolController.m:120 */,
-			7C14BC121222C19400841B26 /* NordicLeagueToolController.m:133 */,
-			7C14BC141222C19500841B26 /* NordicLeagueToolController.m:134 */,
-			7C14BC161222C19900841B26 /* NordicLeagueToolController.m:153 */,
-			7C14BC181222C19900841B26 /* NordicLeagueToolController.m:154 */,
-			7C14BC1A1222C19D00841B26 /* NordicLeagueToolController.m:173 */,
-			7C14BC1C1222C19E00841B26 /* NordicLeagueToolController.m:175 */,
+			7C14BC081222C17D00841B26 /* NordicLeagueToolController.m:111 */,
+			7C14BC0A1222C18A00841B26 /* NordicLeagueToolController.m:113 */,
+			7C14BC0C1222C18B00841B26 /* NordicLeagueToolController.m:117 */,
+			7C14BC0E1222C19000841B26 /* NordicLeagueToolController.m:123 */,
+			7C14BC101222C19200841B26 /* NordicLeagueToolController.m:115 */,
+			7C14BC121222C19400841B26 /* NordicLeagueToolController.m:128 */,
+			7C14BC141222C19500841B26 /* NordicLeagueToolController.m:129 */,
+			7C14BC161222C19900841B26 /* NordicLeagueToolController.m:148 */,
+			7C14BC181222C19900841B26 /* NordicLeagueToolController.m:149 */,
+			7C14BC1A1222C19D00841B26 /* NordicLeagueToolController.m:168 */,
+			7C14BC1C1222C19E00841B26 /* NordicLeagueToolController.m:170 */,
 		);
 		codeSenseManager = 7C2CACEF120ACEB2007B1B8E /* Code sense */;
 		executables = (
@@ -120,8 +120,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 310316904;
-			PBXWorkspaceStateSaveDate = 310316904;
+			PBXPerProjectTemplateStateSaveDate = 310414647;
+			PBXWorkspaceStateSaveDate = 310414647;
 		};
 		perUserProjectItems = {
 			7C0DC1B3120C272000DBBCED /* PBXTextBookmark */ = 7C0DC1B3120C272000DBBCED /* PBXTextBookmark */;
@@ -135,9 +135,7 @@
 			7C23D08312573CEB00DF0CA5 /* PBXBookmark */ = 7C23D08312573CEB00DF0CA5 /* PBXBookmark */;
 			7C23D08812573CEB00DF0CA5 /* PBXBookmark */ = 7C23D08812573CEB00DF0CA5 /* PBXBookmark */;
 			7C29AC13127EF5490092DF68 /* PBXTextBookmark */ = 7C29AC13127EF5490092DF68 /* PBXTextBookmark */;
-			7C29AC2E127F0F010092DF68 /* PBXTextBookmark */ = 7C29AC2E127F0F010092DF68 /* PBXTextBookmark */;
 			7C29AC2F127F0F010092DF68 /* PBXTextBookmark */ = 7C29AC2F127F0F010092DF68 /* PBXTextBookmark */;
-			7C29AC30127F0F010092DF68 /* PBXTextBookmark */ = 7C29AC30127F0F010092DF68 /* PBXTextBookmark */;
 			7C2CACFF120AD677007B1B8E /* PBXTextBookmark */ = 7C2CACFF120AD677007B1B8E /* PBXTextBookmark */;
 			7C2CAD00120AD677007B1B8E /* PBXTextBookmark */ = 7C2CAD00120AD677007B1B8E /* PBXTextBookmark */;
 			7C2CAD01120AD677007B1B8E /* PBXTextBookmark */ = 7C2CAD01120AD677007B1B8E /* PBXTextBookmark */;
@@ -150,6 +148,11 @@
 			7C35E434120D76A300E3E969 /* PBXTextBookmark */ = 7C35E434120D76A300E3E969 /* PBXTextBookmark */;
 			7C35E4B4120E02FB00E3E969 /* PBXTextBookmark */ = 7C35E4B4120E02FB00E3E969 /* PBXTextBookmark */;
 			7C56E128125A67BD00A8822B /* PBXTextBookmark */ = 7C56E128125A67BD00A8822B /* PBXTextBookmark */;
+			7C7B970D12808EE0006A3855 /* PBXTextBookmark */ = 7C7B970D12808EE0006A3855 /* PBXTextBookmark */;
+			7C7B970E12808EE0006A3855 /* PBXTextBookmark */ = 7C7B970E12808EE0006A3855 /* PBXTextBookmark */;
+			7C7B970F12808EE0006A3855 /* PBXTextBookmark */ = 7C7B970F12808EE0006A3855 /* PBXTextBookmark */;
+			7C7B971012808EE0006A3855 /* PBXTextBookmark */ = 7C7B971012808EE0006A3855 /* PBXTextBookmark */;
+			7C7B971212808F64006A3855 /* PBXTextBookmark */ = 7C7B971212808F64006A3855 /* PBXTextBookmark */;
 			7C871DE912425ADF0022EC1D /* PlistBookmark */ = 7C871DE912425ADF0022EC1D /* PlistBookmark */;
 			7C871E28124267F10022EC1D /* PBXTextBookmark */ = 7C871E28124267F10022EC1D /* PBXTextBookmark */;
 			7C871E2A124267F10022EC1D /* PBXTextBookmark */ = 7C871E2A124267F10022EC1D /* PBXTextBookmark */;
@@ -275,7 +278,24 @@
 		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/Headers/Fonts.h;
 		sourceTree = "<absolute>";
 	};
-	7C14BC081222C17D00841B26 /* NordicLeagueToolController.m:113 */ = {
+	7C14BC081222C17D00841B26 /* NordicLeagueToolController.m:111 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		functionName = "-formatString:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 111;
+		location = "NordicLeague Tool";
+		modificationTime = 307915092.1696839;
+		state = 1;
+	};
+	7C14BC0A1222C18A00841B26 /* NordicLeagueToolController.m:113 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -288,27 +308,10 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 113;
-		location = "NordicLeague Tool";
-		modificationTime = 307915092.1696839;
-		state = 1;
-	};
-	7C14BC0A1222C18A00841B26 /* NordicLeagueToolController.m:118 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		functionName = "-formatString:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 118;
 		modificationTime = 307915092.1697611;
 		state = 2;
 	};
-	7C14BC0C1222C18B00841B26 /* NordicLeagueToolController.m:122 */ = {
+	7C14BC0C1222C18B00841B26 /* NordicLeagueToolController.m:117 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -320,11 +323,45 @@
 		functionName = "-formatString:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 122;
+		lineNumber = 117;
 		modificationTime = 307915092.1698381;
 		state = 2;
 	};
-	7C14BC0E1222C19000841B26 /* NordicLeagueToolController.m:128 */ = {
+	7C14BC0E1222C19000841B26 /* NordicLeagueToolController.m:123 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		functionName = "-formatString:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 123;
+		location = "NordicLeague Tool";
+		modificationTime = 307915092.169915;
+		state = 1;
+	};
+	7C14BC101222C19200841B26 /* NordicLeagueToolController.m:115 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		functionName = "-formatString:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 115;
+		location = "NordicLeague Tool";
+		modificationTime = 307915092.17;
+		state = 1;
+	};
+	7C14BC121222C19400841B26 /* NordicLeagueToolController.m:128 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -338,44 +375,10 @@
 		ignoreCount = 0;
 		lineNumber = 128;
 		location = "NordicLeague Tool";
-		modificationTime = 307915092.169915;
-		state = 1;
-	};
-	7C14BC101222C19200841B26 /* NordicLeagueToolController.m:120 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		functionName = "-formatString:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 120;
-		location = "NordicLeague Tool";
-		modificationTime = 307915092.17;
-		state = 1;
-	};
-	7C14BC121222C19400841B26 /* NordicLeagueToolController.m:133 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		functionName = "-formatString:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 133;
-		location = "NordicLeague Tool";
 		modificationTime = 307915092.170081;
 		state = 1;
 	};
-	7C14BC141222C19500841B26 /* NordicLeagueToolController.m:134 */ = {
+	7C14BC141222C19500841B26 /* NordicLeagueToolController.m:129 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -387,12 +390,12 @@
 		functionName = "-formatString:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 134;
+		lineNumber = 129;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.170171;
 		state = 1;
 	};
-	7C14BC161222C19900841B26 /* NordicLeagueToolController.m:153 */ = {
+	7C14BC161222C19900841B26 /* NordicLeagueToolController.m:148 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -404,12 +407,12 @@
 		functionName = "-formatString:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 153;
+		lineNumber = 148;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.1702501;
 		state = 1;
 	};
-	7C14BC181222C19900841B26 /* NordicLeagueToolController.m:154 */ = {
+	7C14BC181222C19900841B26 /* NordicLeagueToolController.m:149 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -421,12 +424,12 @@
 		functionName = "-formatString:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 154;
+		lineNumber = 149;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.1703271;
 		state = 1;
 	};
-	7C14BC1A1222C19D00841B26 /* NordicLeagueToolController.m:173 */ = {
+	7C14BC1A1222C19D00841B26 /* NordicLeagueToolController.m:168 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -438,12 +441,12 @@
 		functionName = "-requestFinished:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 173;
+		lineNumber = 168;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.170393;
 		state = 1;
 	};
-	7C14BC1C1222C19E00841B26 /* NordicLeagueToolController.m:175 */ = {
+	7C14BC1C1222C19E00841B26 /* NordicLeagueToolController.m:170 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -455,7 +458,7 @@
 		functionName = "-requestFinished:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 175;
+		lineNumber = 170;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.170458;
 		state = 1;
@@ -478,16 +481,6 @@
 		vrLen = 274;
 		vrLoc = 0;
 	};
-	7C29AC2E127F0F010092DF68 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */;
-		name = "NordicLeagueToolController.h: 43";
-		rLen = 0;
-		rLoc = 896;
-		rType = 0;
-		vrLen = 477;
-		vrLoc = 608;
-	};
 	7C29AC2F127F0F010092DF68 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7C871E12124262400022EC1D /* PreferenceController.h */;
@@ -497,16 +490,6 @@
 		rType = 0;
 		vrLen = 442;
 		vrLoc = 129;
-	};
-	7C29AC30127F0F010092DF68 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
-		name = "NordicLeagueToolController.m: 311";
-		rLen = 0;
-		rLoc = 10154;
-		rType = 0;
-		vrLen = 592;
-		vrLoc = 2787;
 	};
 	7C2CACE7120ACEA5007B1B8E /* NordicLeague Tool */ = {
 		isa = PBXExecutable;
@@ -538,17 +521,17 @@
 	};
 	7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {644, 826}}";
-			sepNavSelRange = "{896, 0}";
-			sepNavVisRange = "{608, 477}";
+			sepNavIntBoundsRect = "{{0, 0}, {644, 924}}";
+			sepNavSelRange = "{824, 0}";
+			sepNavVisRange = "{608, 401}";
 			sepNavWindowFrame = "{{412, 97}, {750, 558}}";
 		};
 	};
 	7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {780, 6076}}";
-			sepNavSelRange = "{10154, 0}";
-			sepNavVisRange = "{5029, 523}";
+			sepNavIntBoundsRect = "{{0, 0}, {1380, 6326}}";
+			sepNavSelRange = "{1118, 28}";
+			sepNavVisRange = "{904, 537}";
 			sepNavWindowFrame = "{{50, 105}, {765, 637}}";
 		};
 	};
@@ -766,7 +749,7 @@
 		modificationTime = 307915092.701492;
 		state = 0;
 	};
-	7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:240 */ = {
+	7C7ADD8C1214527B00F7A3BA /* NordicLeagueToolController.m:234 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -778,10 +761,60 @@
 		functionName = "-validateMenuItem:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 240;
+		lineNumber = 234;
 		location = "NordicLeague Tool";
 		modificationTime = 307915092.169553;
 		state = 2;
+	};
+	7C7B970D12808EE0006A3855 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */;
+		name = "NordicLeagueToolController.h: 42";
+		rLen = 0;
+		rLoc = 824;
+		rType = 0;
+		vrLen = 401;
+		vrLoc = 608;
+	};
+	7C7B970E12808EE0006A3855 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		name = "NordicLeagueToolController.m: 76";
+		rLen = 0;
+		rLoc = 2242;
+		rType = 0;
+		vrLen = 460;
+		vrLoc = 2753;
+	};
+	7C7B970F12808EE0006A3855 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		name = "NordicLeagueToolController.m: 76";
+		rLen = 0;
+		rLoc = 2242;
+		rType = 0;
+		vrLen = 460;
+		vrLoc = 2753;
+	};
+	7C7B971012808EE0006A3855 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEB120ACEB2007B1B8E /* NordicLeagueToolController.h */;
+		name = "NordicLeagueToolController.h: 42";
+		rLen = 0;
+		rLoc = 824;
+		rType = 0;
+		vrLen = 401;
+		vrLoc = 608;
+	};
+	7C7B971212808F64006A3855 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7C2CACEC120ACEB2007B1B8E /* NordicLeagueToolController.m */;
+		name = "NordicLeagueToolController.m: 76";
+		rLen = 0;
+		rLoc = 2242;
+		rType = 0;
+		vrLen = 465;
+		vrLoc = 11198;
 	};
 	7C871DE912425ADF0022EC1D /* PlistBookmark */ = {
 		isa = PlistBookmark;

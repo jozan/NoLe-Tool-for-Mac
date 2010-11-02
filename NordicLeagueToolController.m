@@ -73,14 +73,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	[self update];
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
-											 target:self
-										   selector:@selector(update)
-										   userInfo:nil
-											repeats:YES];
-	
+	[self setTimer];
 
 }
 
@@ -99,20 +92,22 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[super dealloc];
 }
 
+-(void)setTimer{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
+											 target:self
+										   selector:@selector(update)
+										   userInfo:nil
+											repeats:YES];
+}
+
+-(void)unsetTimer {
+	[timer invalidate];
+	timer = nil;
+}
+
 -(void)update
 {
-	//NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
-	
-	// Introduce variables
-	
-	/**
-	 * This should work as well using:
-	 * NSString *urlContent = [NSString stringWithContentsOfURL:url];
-	 *
-	 * However, better error handling is NEEDED!
-	 */
-	
-	
 	// Mark statusbar as updating
 	NSAttributedString *atitle = [[NSAttributedString alloc]
 								  initWithString:@"U!" attributes:
@@ -157,12 +152,12 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 		[self processError:@"-"];
 		return;
 	}
-	/* Quick fix for gameName problem. It's root are in data where game name is from. */
+	
+	/* Trim received game name */
 	NSString *dirtyGameName = [[NSString alloc]initWithString:[resultArray objectAtIndex:0]];
 	NSString *cleanGameName = [dirtyGameName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	[dirtyGameName release];
 	
-	//gameName = [[NSString alloc] initWithString:[resultArray objectAtIndex:0]];
 	gameName = [[NSString alloc] initWithString:cleanGameName];
 	playerCount = [resultArray objectAtIndex:1];
 	
@@ -173,12 +168,11 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	// Display player count on status bar	
 	NSAttributedString *atitle = [self formatString:playerCount];
+	[statusItem setAttributedTitle:atitle];
 	
 	// Release memory
 	[aString release];
 	[playerCount release];
-	
-	[statusItem setAttributedTitle:atitle];
 	
 	if (autoCopy || bypassAutoCopy)
 	{
@@ -303,10 +297,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	{
 		aString = [[NSAttributedString alloc] initWithString:@"E3" attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor redColor], NSForegroundColorAttributeName,nil]];
 	}
-	
-	//aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor greenColor], NSForegroundColorAttributeName,nil]];
-	
-	//[aString release];
+
 	return aString;
 	
 	[gameName release];
@@ -339,19 +330,16 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 {
 	
 	if (autoUpdate) {
-		[timer invalidate];
+		[self unsetTimer];
+		
 		autoUpdate = NO;
 		[sender setState:NSOffState];
 		
 	}
 	else {
 		[self update];
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
-												 target:self
-											   selector:@selector(update)
-											   userInfo:nil
-												repeats:YES];
+		[self setTimer];
+		
 		autoUpdate = YES;
 		[sender setState:NSOnState];
 	}
