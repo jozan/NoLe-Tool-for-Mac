@@ -23,16 +23,12 @@ NSString * const NLTGameNameKey = @"GameNameToCopy";
 
 - (float)refreshTimeIntervalValue
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	float refreshTime = [defaults floatForKey:NLTRefreshIntervalKey];	
-	return refreshTime;
+	return [[NSUserDefaults standardUserDefaults] floatForKey:NLTRefreshIntervalKey];
 }
 
-// NOT WORKING
 - (BOOL)gameNameValue
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	return [defaults boolForKey:NLTGameNameKey];
+	return [[NSUserDefaults standardUserDefaults] boolForKey:NLTGameNameKey];
 }
 
 - (void)windowDidLoad
@@ -43,21 +39,23 @@ NSString * const NLTGameNameKey = @"GameNameToCopy";
 	
 	[refreshTimeSlider setFloatValue:interval];
 	[refreshTimeLabel setFloatValue:interval];
+	
+	[matrix deselectAllCells];
+	BOOL state = [self gameNameValue];
+	
+	if (state == TRUE)
+		[matrix setSelectionFrom:0 to:0 anchor:0 highlight:YES];
+	else
+		[matrix setSelectionFrom:1 to:1 anchor:1 highlight:YES];
 
-}
-
-- (void)savePrefs
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setFloat:[refreshTimeLabel floatValue] forKey:NLTRefreshIntervalKey];
-	[defaults synchronize];
 }
 	
-- (IBAction)sliderChangeRefreshTime:(id)sender;
+- (IBAction)sliderChangeRefreshTime:(id)sender
 {	
 	// Update defaults
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setFloat:[refreshTimeLabel floatValue] forKey:NLTRefreshIntervalKey];
+	[defaults synchronize];
 	
 	CGFloat interval = [self refreshTimeIntervalValue];
 	[refreshTimeSlider setFloatValue:interval];
@@ -67,25 +65,78 @@ NSString * const NLTGameNameKey = @"GameNameToCopy";
 	//NSLog(@"RefreshTimeValue changed: %i", [refreshTimeSlider intValue]);
 }
 
+- (IBAction)matrixChangeGameToBeCopied:(id)sender
+{
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	switch ([[sender selectedCell] tag]) {
+		case 0:
+			[defaults setBool:FALSE forKey:NLTGameNameKey];
+			break;
+		case 1:
+		default:
+			[defaults setBool:TRUE forKey:NLTGameNameKey];
+	}
+	
+	[defaults synchronize];
+}
+
+- (BOOL)getSelectedTagFromMatrix
+{
+	switch ([[matrix selectedCell] tag]) {
+		case 0:
+			NSLog(@"Got tag 0");
+			return FALSE;
+		case 1:
+		default:
+			NSLog(@"Got tag 1 or default");
+			return TRUE;
+	}
+}
+
+- (void)resetMatrix:(BOOL)NormalGame
+{
+	[matrix deselectAllCells];
+	
+	if (NormalGame)
+		[matrix setSelectionFrom:0 to:0 anchor:0 highlight:YES];
+	else
+		[matrix setSelectionFrom:1 to:1 anchor:1 highlight:YES];	
+}
+
 - (IBAction)saveAndClose:(id)sender
 {
-	NSLog(@"Settings saved. At least button got pressed.");
-	[self savePrefs];
-	[window close];
+	NSLog(@"Settings saved.");
+	[self saveSettingsToUserDefaults];
+	[self close];
+	
+}
+
+- (void)saveSettingsToUserDefaults
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setFloat:[refreshTimeLabel floatValue] forKey:NLTRefreshIntervalKey];
+	[defaults setBool:[self getSelectedTagFromMatrix] forKey:NLTGameNameKey];
+	[defaults synchronize];
 }
 
 - (IBAction)restoreSettings:(id)sender
 {
-	NSLog(@"Settings restored to default. At least button got pressed.");
+	NSLog(@"Settings restored to default.");
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setFloat:20.0	forKey:NLTRefreshIntervalKey];
+	[defaults setBool:TRUE forKey:NLTGameNameKey];
 	[defaults synchronize];
 	
 	CGFloat interval = [self refreshTimeIntervalValue];
 	[refreshTimeSlider setFloatValue:interval];
 	[refreshTimeLabel setFloatValue:interval];
+	[self resetMatrix:TRUE];
+	
 }
 
 @synthesize refreshTimeLabel;
 @synthesize refreshTimeSlider;
+@synthesize matrix;
 @end

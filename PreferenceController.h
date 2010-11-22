@@ -13,20 +13,24 @@ extern NSString * const NLTGameNameKey;
 
 @interface PreferenceController : NSWindowController {
 	IBOutlet id refreshTimeLabel;
-	IBOutlet NSSlider * refreshTimeSlider;
-	IBOutlet NSWindow *window;
+	IBOutlet NSSlider *refreshTimeSlider;
+	IBOutlet NSMatrix *matrix;
+	
 }
 
-- (float)refreshTimeIntervalValue;
 - (BOOL)gameNameValue;
-
+- (float)refreshTimeIntervalValue;
 - (void)savePrefs;
+- (BOOL)getSelectedTagFromMatrix;
+- (void)resetMatrix:(BOOL)qualification;
 
 - (IBAction)sliderChangeRefreshTime:(id)sender;
-- (IBAction)changeGameToBeCopied:(id)sender;
+- (IBAction)matrixChangeGameToBeCopied:(id)sender;
 - (IBAction)restoreSettings:(id)sender;
 - (IBAction)saveAndClose:(id)sender;
 
+
 @property (retain) id refreshTimeLabel;
-@property (retain) NSSlider * refreshTimeSlider;
+@property (retain) NSSlider *refreshTimeSlider;
+@property (retain) NSMatrix *matrix;
 @end

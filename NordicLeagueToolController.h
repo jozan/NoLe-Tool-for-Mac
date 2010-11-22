@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 
 @class PreferenceController;
 
@@ -19,31 +20,35 @@
 	PreferenceController *preferenceController;
 	
 	NSSound *hotkeySuccess;
-	NSSound *hotkeyFullOrError;	
+	NSSound *hotkeyFullOrError;
+	
 }
 
 NSString *gameName = @"No game name copied!";
 NSString *playerCount = @"NA";
-NSApplication *mySelf = nil;
 
 
 NSPasteboard *pasteBoard = nil;
-NSAttributedString *aString = nil;
+//NSAttributedString *aString = nil;
 NSMutableData *receivedData;
 
-
+BOOL updateInProgress = NO;
 BOOL isUpdated = NO;
 BOOL autoUpdate = YES;
 BOOL autoCopy = NO;
 BOOL bypassAutoCopy = NO;
 NSTimer *timer = nil;
+id hotkeyMonitor;
 
-- (void)setTimer;
-- (void)unsetTimer;
-
-- (void)update;
+- (void)update:(id)sender;
+- (void)updateSuccess:(id)sender;
+- (void)postNotification:(NSString *)postNotificationName;
+- (void)autoUpdate:(NSTimer *)timer;
 - (void)processError:(NSString *)error;
-- (NSAttributedString *)formatString:(NSString *)str;
+- (void)setTitle:(NSString *)string:(NSColor *)color;
+- (void)generateAttributedTitle;
+- (void)fancyInit:(id)sender;
+- (void)prettyIntro;
 
 - (IBAction)refresh:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;
@@ -53,6 +58,7 @@ NSTimer *timer = nil;
 
 // Show Preference Panel
 - (IBAction)showPreferencePanel:(id)sender;
+- (IBAction)closePreferencePanel:(id)sender;
 
 @property (retain) NSMenu *statusMenu;
 @property (retain) NSStatusItem *statusItem;

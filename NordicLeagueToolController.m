@@ -10,11 +10,10 @@
 #import "PreferenceController.h"
 #import <Carbon/Carbon.h>
 
+
 #define copyGameNameItem 5300
 
 @implementation NordicLeagueToolController
-
-OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData);
 
 +(void)initialize
 {
@@ -26,103 +25,151 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:NLTGameNameKey];
 	
 	// Register the dictionary of defaults
-	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues ];
+}
+
+-(void)dealloc
+{
+	[NSEvent removeMonitor:hotkeyMonitor];
+	[timer invalidate];
+	[timer release];	
+	[statusItem release];
+	[gameName release];
+	[playerCount release];
+	[hotkeySuccess release];
+	[hotkeyFullOrError release];
+	[preferenceController release];
+	
+	[receivedData release];
+	
+	[super dealloc];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	hotkeyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent* event){
+		if (([event keyCode] == 49) && ([event modifierFlags] & NSControlKeyMask) && ([event modifierFlags] & NSCommandKeyMask)) {
+			[self postNotification:@"HotKeyUpdate"];
+		};
+	}];
+}
+
+-(void)autoUpdate:(NSTimer *)timer
+{
+	[self postNotification:@"AutoUpdate"];
+}
+
+-(void)postNotification:(NSString *)postNotificationName
+{
+	
+	if (postNotificationName == @"HotKeyUpdate")
+	{
+		if (updateInProgress == YES || bypassAutoCopy == YES)
+			return;
+		else
+			bypassAutoCopy = YES;
+		
+		NSLog(@"Posting HotKeyUpdate Notification..");
+	}
+	else if (postNotificationName == @"AutoUpdate")
+	{
+		NSLog(@"Posting AutoUpdate Notification..");
+	}
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:postNotificationName object: nil];
+}
+
+-(void)fancyInit:(id)sender
+{
+	[self updateTitle:(NSString*)sender:[NSColor blueColor]];
+}
+-(void)prettyIntro
+{
+	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+	[self updateTitle:@" ":[NSColor blueColor]];
+	[self performSelector:@selector(fancyInit:) withObject:@" N" afterDelay:0.7];
+	[self performSelector:@selector(fancyInit:) withObject:@"No" afterDelay:1.4];
+	[self performSelector:@selector(fancyInit:) withObject:@"NoL" afterDelay:2.1];
+	[self performSelector:@selector(fancyInit:) withObject:@"oLe" afterDelay:2.8];
+	[self performSelector:@selector(fancyInit:) withObject:@"Le " afterDelay:3.5];
+	[self performSelector:@selector(fancyInit:) withObject:@"e " afterDelay:4.2];
+	[self performSelector:@selector(fancyInit:) withObject:@"  " afterDelay:4.7];
+	[self performSelector:@selector(fancyInit:) withObject:version afterDelay:5.3];
 }
 
 -(void)awakeFromNib
 {
-	EventHotKeyRef	myHotKeyRef;
-	EventHotKeyID	myHotKeyID;
-	EventTypeSpec	eventType;
-	eventType.eventClass=kEventClassKeyboard;
-	eventType.eventKind=kEventHotKeyPressed;
-	InstallApplicationEventHandler(&myHotKeyHandler,1,&eventType,NULL,NULL);
-	
-	myHotKeyID.signature='up';
-	myHotKeyID.id=1;
-
-	// Get version number
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-
-	// Register hotkey ctrl+option+space
-	RegisterEventHotKey(49, controlKey+optionKey, myHotKeyID, GetApplicationEventTarget(), 0, &myHotKeyRef);
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	
+	[nc addObserver:self
+		   selector:@selector(update:) 
+			   name:@"HotKeyUpdate"
+			 object:nil];
+	
+	[nc addObserver:self
+		   selector:@selector(update:) 
+			   name:@"AutoUpdate"
+			 object:nil];
 	
 	//Create the NSStatusBar and set its length
-	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];
+	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:40] retain];
 	
-	
-	NSAttributedString *atitle = [[NSAttributedString alloc]
-								  initWithString:@" 0" attributes:
-								  [NSDictionary dictionaryWithObjectsAndKeys:
-								   [NSFont menuBarFontOfSize:0], NSFontAttributeName,
-								   [NSColor grayColor], NSForegroundColorAttributeName,
-								   nil]];
-	
-	[statusItem setAttributedTitle:atitle];
-	[atitle release];
+	[self prettyIntro];
 	
 	[statusItem setHighlightMode:YES];
 	[statusItem setToolTip:version];
 	[statusItem setMenu:statusMenu];
 	[statusItem setEnabled:YES];
 	
-	mySelf = self;
-	
 	hotkeySuccess = [NSSound soundNamed:@"mmmm"];
+	[hotkeySuccess setVolume:0.3];
 	hotkeyFullOrError =[NSSound soundNamed:@"doh"];
+	[hotkeyFullOrError setVolume:0.3];
 	
-	[self update];
 	
-	[self setTimer];
-
-}
-
--(void)dealloc
-{   
-	[statusItem release];
-	[gameName release];
-	[playerCount release];
-	[aString release];
-	[mySelf release];
-	[hotkeySuccess release];
-	[hotkeyFullOrError release];
-	[receivedData release];
-	[preferenceController release];
 	
-	[super dealloc];
-}
-
--(void)setTimer{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
+	timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:NLTRefreshIntervalKey]
 											 target:self
-										   selector:@selector(update)
+										   selector:@selector(autoUpdate:)
 										   userInfo:nil
 											repeats:YES];
+	//[self  updateTitle:@"NL":[NSColor blueColor]];
+	//[self postNotification:@"AutoUpdate"];
 }
 
--(void)unsetTimer {
-	[timer invalidate];
-	timer = nil;
-}
-
--(void)update
+-(void)updateTitle:(NSString *)string:(NSColor *)color
 {
-	// Mark statusbar as updating
-	NSAttributedString *atitle = [[NSAttributedString alloc]
-								  initWithString:@"U!" attributes:
-								  [NSDictionary dictionaryWithObjectsAndKeys:
-								   [NSFont menuBarFontOfSize:0], NSFontAttributeName,
-								   [NSColor grayColor], NSForegroundColorAttributeName,
-								   nil]];
+	[statusItem setAttributedTitle:[[NSAttributedString alloc]
+									initWithString:string attributes:
+									[NSDictionary dictionaryWithObjectsAndKeys:
+									 [NSFont menuBarFontOfSize:0], NSFontAttributeName,
+									 color, NSForegroundColorAttributeName,
+									 nil]]];
+}
+
+-(void)update:(id)sender
+{
+	if (updateInProgress == YES)
+	{
+		NSLog(@"Another update is already in progress, aborting.");
+		return;
+	}
 	
-	[statusItem setAttributedTitle:atitle];
-	[atitle release];
+	updateInProgress = YES;
+	[self updateTitle:@"U!":[NSColor grayColor]];
 	
 	// Create the request.
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.nordicleague.eu/api/games/s"]
-											  cachePolicy:NSURLRequestReloadIgnoringCacheData
-										  timeoutInterval:5.0];
+	NSURLRequest *theRequest;
+	
+	BOOL TrackNormalGames = [[NSUserDefaults standardUserDefaults] boolForKey:NLTGameNameKey];
+	if (TrackNormalGames)
+		theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.nordicleague.eu/api/games/s"]
+									  cachePolicy:NSURLRequestReloadIgnoringCacheData
+								  timeoutInterval:3.0];
+	else
+		theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.nordicleague.eu/api/games/q"]
+									  cachePolicy:NSURLRequestReloadIgnoringCacheData
+								  timeoutInterval:3.0];
 	
 	// create the connection with the request and start loading the data
 	NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
@@ -141,38 +188,26 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 -(void)processData:(NSString*)data
 {
 	if ([data length] < 1)
+	{
+		[self processError:@"NG"];
 		return;
-	
-	NSLog(data);
+	}
 	
 	NSArray *resultArray = [data componentsSeparatedByString:@"|"];
 	
 	if ([resultArray count] != 3)
 	{
-		[self processError:@"-"];
+		[self processError:@"PD2"];
 		return;
 	}
 	
-	/* Trim received game name */
-	NSString *dirtyGameName = [[NSString alloc]initWithString:[resultArray objectAtIndex:0]];
-	NSString *cleanGameName = [dirtyGameName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	[dirtyGameName release];
+	gameName = [[[NSString alloc]	initWithString:[resultArray objectAtIndex:0]]
+									stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	
-	gameName = [[NSString alloc] initWithString:cleanGameName];
 	playerCount = [resultArray objectAtIndex:1];
-	
-	
-	NSLog(@"Game name: %@", gameName);
-	NSLog(@"Player count: %@", playerCount);
-	
-	
-	// Display player count on status bar	
-	NSAttributedString *atitle = [self formatString:playerCount];
-	[statusItem setAttributedTitle:atitle];
-	
-	// Release memory
-	[aString release];
-	[playerCount release];
+
+	// Display player count on status bar
+	[self generateAttributedTitle];
 	
 	if (autoCopy || bypassAutoCopy)
 	{
@@ -180,7 +215,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 		pasteBoard = [NSPasteboard generalPasteboard];
 		[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
 		[pasteBoard setString:gameName forType:NSStringPboardType];
-		[gameName release];
 		
 		if (bypassAutoCopy)
 		{
@@ -192,115 +226,78 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 			bypassAutoCopy = NO;
 		}
 	}
-	isUpdated = YES;	
+	isUpdated = YES;
+	[self performSelector:@selector(updateSuccess:) withObject:nil afterDelay:1.0];
+}
+
+-(void)updateSuccess:(id)sender
+{
+	updateInProgress = NO;
 }
 
 -(void)processError:(NSString *)error
 {
+	[self updateTitle:error:[NSColor redColor]];
 	[statusItem setTitle:error];
 	isUpdated = NO;
+	updateInProgress = NO;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	if (receivedData != nil)
+		[receivedData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     // Append the new data to receivedData.
-    [receivedData appendData:data];
+	if (receivedData != nil)
+		[receivedData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    // do something with the data
-    // receivedData is declared as a method instance elsewhere
-	
-    // NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
-	
 	[self processData:[[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding]];
 	
     // release the connection, and the data object
     [connection release];
 	[receivedData release];
+	receivedData = nil;
 }
 		 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-	// This method is called when the server has determined that it
-	// has enough information to create the NSURLResponse.
-
-	// It can be called multiple times, for example in the case of
-	// redirect, so each time we reset the data.
-
-	[receivedData setLength:0];
-}
-
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 	[connection release];
     [receivedData release];
+	receivedData = nil;
 
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+    NSLog(@"Connection failed! Error - %@ %@",	[error localizedDescription],
+												[[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
 	
 	[self processError:@"E4"];
 }
 
 -(IBAction)refresh:(id)sender
 {
-	[self update];
+	[self postNotification:@"AutoUpdate"];
 }
 
-- (NSAttributedString *)formatString:(NSString *)str
+-(void)generateAttributedTitle
 {
+	float players = [playerCount intValue];
 	
-	NSString *formattedString;
-	NSAttributedString *aString;
-	
-	if (gameName.length > 27)
-	{
-		formattedString = [NSString stringWithFormat:@"NA"];
-		aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor grayColor], NSForegroundColorAttributeName,nil]];
-	}
-	
-	if (str.length == 1)
-	{
-		
-		formattedString = [NSString stringWithFormat:@" %@", str];
-		
-		if ([str isEqualToString:@"0"] || [str isEqualToString:@"1"] || [str isEqualToString:@"2"] || [str isEqualToString:@"3"] || [str isEqualToString:@"4"] || [str isEqualToString:@"5"] || [str isEqualToString:@"6"])
-		{
-			aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor colorWithDeviceRed:0.0 green:0.6 blue:0.0 alpha:1.0], NSForegroundColorAttributeName,nil]];
-		}
-		else if ([str isEqualToString:@"7"] || [str isEqualToString:@"8"])
-		{
-			aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor colorWithDeviceRed:0.8 green:0.5 blue:0.0 alpha:1.0], NSForegroundColorAttributeName,nil]];
-		}
-		else if ([str isEqualToString:@"9"])
-		{
-			aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor colorWithDeviceRed:0.8 green:0.37 blue:0.0 alpha:1.0], NSForegroundColorAttributeName,nil]];
-		}
-		else
-		{
-			NSLog(@"formatted: \"%@\"", formattedString);
-			formattedString = [NSString stringWithFormat:@"E%@", str];
-			aString = [[NSAttributedString alloc] initWithString:formattedString attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor redColor], NSForegroundColorAttributeName,nil]];
-		}
-		
-		//return [NSString stringWithFormat:@" %@", str];
-	}
-	else if (str.length == 2)
-	{
-		//formattedString = [NSString stringWithFormat:@"%@", str];
-		aString = [[NSAttributedString alloc] initWithString:str attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor redColor], NSForegroundColorAttributeName,nil]];
-	}
-	
+	if (players > 10)
+		[self updateTitle:@"E3":[NSColor redColor]];
 	else
 	{
-		aString = [[NSAttributedString alloc] initWithString:@"E3" attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont menuBarFontOfSize:0], NSFontAttributeName,[NSColor redColor], NSForegroundColorAttributeName,nil]];
+		float r = -0.2f + (players/10.0f) + ((players/20.0f)*2.0f);
+		//float g = 1.0f - players/10.0;
+		float g = 0.76f - players/28.0f;
+		float b = 0.15f - players/40.0f;
+		[self updateTitle:playerCount:[NSColor colorWithDeviceRed:r green:g blue:b alpha:15.0]];
 	}
-
-	return aString;
-	
-	[gameName release];
+		
 }
 
 /**
@@ -312,34 +309,28 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 
 -(IBAction)copyToClipboard:(id)sender
 {
-	
-	NSString *copyGameName = [[NSMutableString alloc] initWithString:gameName];
-	[copyGameName release];
-	
-	NSLog(copyGameName);
-	
-	// Copy game name (copyGameName) to clipbaord
 	pasteBoard = [NSPasteboard generalPasteboard];
 	[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
-	[pasteBoard setString:copyGameName forType:NSStringPboardType];
-
-	NSLog(copyGameName);
+	[pasteBoard setString:gameName forType:NSStringPboardType];
 }
 
 -(IBAction)toggleAutoRefresh:(id)sender
 {
 	
 	if (autoUpdate) {
-		[self unsetTimer];
-		
+		[timer invalidate];
 		autoUpdate = NO;
 		[sender setState:NSOffState];
 		
 	}
 	else {
-		[self update];
-		[self setTimer];
-		
+		[self update:nil];
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
+												 target:self
+											   selector:@selector(update:)
+											   userInfo:nil
+												repeats:YES];
 		autoUpdate = YES;
 		[sender setState:NSOnState];
 	}
@@ -356,7 +347,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	else {
 		autoCopy = YES;
 		[sender setState:NSOnState];
-		[self update];
 	}
 }
 
@@ -371,17 +361,6 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 }
 
-OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
-{
-	// hotkey request to update and copy gamename.
-	
-	bypassAutoCopy = YES;
-	[mySelf update];
-
-    return noErr;
-	
-}
-
 /**
  * Menu items that brings up window
  * openAbout: opens About Panel
@@ -391,7 +370,7 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 - (IBAction)openAbout:(id)sender
 {
 	[NSApp activateIgnoringOtherApps:YES];
-	[NSApp orderFrontStandardAboutPanel:nil];
+	[NSApp orderFrontStandardAboutPanel:YES];
 }
 
 - (IBAction)showPreferencePanel:(id)sender
@@ -405,6 +384,17 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[preferenceController showWindow:self];
+	
+}
+
+- (IBAction)hidePreferencePanel:(id)sender
+{
+	// Is preferenceController nil?
+	if ( preferenceController) {
+		[NSApp activateIgnoringOtherApps:NO];
+		[preferenceController close];
+		NSLog(@"Hiding %@", preferenceController);
+	}
 	
 }
 
