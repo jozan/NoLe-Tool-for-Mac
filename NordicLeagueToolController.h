@@ -45,7 +45,7 @@ id hotkeyMonitor;
 - (void)postNotification:(NSString *)postNotificationName;
 - (void)autoUpdate:(NSTimer *)timer;
 - (void)processError:(NSString *)error;
-- (void)setTitle:(NSString *)string:(NSColor *)color;
+- (void)updateTitle:(NSString *)string:(NSColor *)color;
 - (void)generateAttributedTitle;
 - (void)fancyInit:(id)sender;
 - (void)prettyIntro;

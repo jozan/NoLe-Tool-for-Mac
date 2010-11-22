@@ -238,7 +238,7 @@
 -(void)processError:(NSString *)error
 {
 	[self updateTitle:error:[NSColor redColor]];
-	[statusItem setTitle:error];
+	//[statusItem updateTitle:error];
 	isUpdated = NO;
 	updateInProgress = NO;
 }
