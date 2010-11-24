@@ -86,14 +86,14 @@
 {
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 	[self updateTitle:@" ":[NSColor blueColor]];
-	[self performSelector:@selector(fancyInit:) withObject:@" N" afterDelay:0.7];
-	[self performSelector:@selector(fancyInit:) withObject:@"No" afterDelay:1.4];
-	[self performSelector:@selector(fancyInit:) withObject:@"NoL" afterDelay:2.1];
-	[self performSelector:@selector(fancyInit:) withObject:@"oLe" afterDelay:2.8];
-	[self performSelector:@selector(fancyInit:) withObject:@"Le " afterDelay:3.5];
-	[self performSelector:@selector(fancyInit:) withObject:@"e " afterDelay:4.2];
-	[self performSelector:@selector(fancyInit:) withObject:@"  " afterDelay:4.7];
-	[self performSelector:@selector(fancyInit:) withObject:version afterDelay:5.3];
+	[self performSelector:@selector(fancyInit:) withObject:@" N" afterDelay:0.3];
+	[self performSelector:@selector(fancyInit:) withObject:@"No" afterDelay:0.6];
+	[self performSelector:@selector(fancyInit:) withObject:@"NoL" afterDelay:0.9];
+	[self performSelector:@selector(fancyInit:) withObject:@"oLe" afterDelay:1.2];
+	[self performSelector:@selector(fancyInit:) withObject:@"Le " afterDelay:1.5];
+	[self performSelector:@selector(fancyInit:) withObject:@"e " afterDelay:1.8];
+	[self performSelector:@selector(fancyInit:) withObject:@"  " afterDelay:2.1];
+	[self performSelector:@selector(fancyInit:) withObject:version afterDelay:2.4];
 }
 
 -(void)awakeFromNib
