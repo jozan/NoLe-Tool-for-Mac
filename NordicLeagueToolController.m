@@ -347,6 +347,7 @@
 	else {
 		autoCopy = YES;
 		[sender setState:NSOnState];
+		[self postNotification:@"AutoUpdate"];
 	}
 }
 
