@@ -80,19 +80,19 @@
 
 -(void)fancyInit:(id)sender
 {
-	[self updateTitle:(NSString*)sender:[NSColor blueColor]];
+	[self updateTitle:(NSString*)sender:[NSColor colorWithDeviceRed:0 green:0 blue:0.9 alpha:1]];
 }
 -(void)prettyIntro
 {
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-	[self updateTitle:@" ":[NSColor blueColor]];
-	[self performSelector:@selector(fancyInit:) withObject:@" N" afterDelay:0.3];
-	[self performSelector:@selector(fancyInit:) withObject:@"No" afterDelay:0.6];
+	[self updateTitle:@" ":[NSColor darkGrayColor]];
+	[self performSelector:@selector(fancyInit:) withObject:@"  N" afterDelay:0.3];
+	[self performSelector:@selector(fancyInit:) withObject:@" No" afterDelay:0.6];
 	[self performSelector:@selector(fancyInit:) withObject:@"NoL" afterDelay:0.9];
 	[self performSelector:@selector(fancyInit:) withObject:@"oLe" afterDelay:1.2];
 	[self performSelector:@selector(fancyInit:) withObject:@"Le " afterDelay:1.5];
-	[self performSelector:@selector(fancyInit:) withObject:@"e " afterDelay:1.8];
-	[self performSelector:@selector(fancyInit:) withObject:@"  " afterDelay:2.1];
+	[self performSelector:@selector(fancyInit:) withObject:@"e  " afterDelay:1.8];
+	[self performSelector:@selector(fancyInit:) withObject:@"   " afterDelay:2.1];
 	[self performSelector:@selector(fancyInit:) withObject:version afterDelay:2.4];
 }
 
