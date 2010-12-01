@@ -58,7 +58,6 @@ id hotkeyMonitor;
 
 // Show Preference Panel
 - (IBAction)showPreferencePanel:(id)sender;
-- (IBAction)closePreferencePanel:(id)sender;
 
 @property (retain) NSMenu *statusMenu;
 @property (retain) NSStatusItem *statusItem;

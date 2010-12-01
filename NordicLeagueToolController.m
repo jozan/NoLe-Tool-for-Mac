@@ -273,7 +273,7 @@
 	receivedData = nil;
 
     NSLog(@"Connection failed! Error - %@ %@",	[error localizedDescription],
-												[[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+												[[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
 	
 	[self processError:@"E4"];
 }
@@ -371,7 +371,9 @@
 - (IBAction)openAbout:(id)sender
 {
 	[NSApp activateIgnoringOtherApps:YES];
-	[NSApp orderFrontStandardAboutPanel:YES];
+	//[NSApp orderFrontStandardAboutPanel:YES];
+	
+	[NSApp orderFrontStandardAboutPanel:(id)sender];
 }
 
 - (IBAction)showPreferencePanel:(id)sender
