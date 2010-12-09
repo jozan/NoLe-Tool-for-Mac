@@ -32,25 +32,25 @@ NSPasteboard *pasteBoard = nil;
 //NSAttributedString *aString = nil;
 NSMutableData *receivedData;
 
-BOOL updateInProgress = NO;
-BOOL isUpdated = NO;
-BOOL autoUpdate = YES;
+BOOL refreshInProgress = NO;
+BOOL isRefreshed = NO;
+BOOL autoRefresh = YES;
 BOOL autoCopy = NO;
 BOOL bypassAutoCopy = NO;
 NSTimer *timer = nil;
 id hotkeyMonitor;
 
-- (void)update:(id)sender;
-- (void)updateSuccess:(id)sender;
+- (void)refresh:(id)sender;
+- (void)refreshSuccess:(id)sender;
 - (void)postNotification:(NSString *)postNotificationName;
-- (void)autoUpdate:(NSTimer *)timer;
+- (void)autoRefresh:(NSTimer *)timer;
 - (void)processError:(NSString *)error;
 - (void)updateTitle:(NSString *)string:(NSColor *)color;
 - (void)generateAttributedTitle;
 - (void)fancyInit:(id)sender;
 - (void)prettyIntro;
 
-- (IBAction)refresh:(id)sender;
+- (IBAction)refreshAction:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;
 - (IBAction)openAbout:(id)sender;
 - (IBAction)toggleAutoRefresh:(id)sender;

@@ -48,31 +48,35 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	hotkeyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent* event){
 		if (([event keyCode] == 49) && ([event modifierFlags] & NSControlKeyMask) && ([event modifierFlags] & NSCommandKeyMask)) {
-			[self postNotification:@"HotKeyUpdate"];
+			[self postNotification:@"HotKeyRefresh"];
 		};
 	}];
 }
 
--(void)autoUpdate:(NSTimer *)timer
+-(void)autoRefresh:(NSTimer *)timer
 {
-	[self postNotification:@"AutoUpdate"];
+	[self postNotification:@"AutoRefresh"];
 }
 
 -(void)postNotification:(NSString *)postNotificationName
 {
 	
-	if (postNotificationName == @"HotKeyUpdate")
+	if (postNotificationName == @"HotKeyRefresh")
 	{
-		if (updateInProgress == YES || bypassAutoCopy == YES)
+		if (refreshInProgress == YES || bypassAutoCopy == YES)
 			return;
 		else
 			bypassAutoCopy = YES;
 		
-		NSLog(@"Posting HotKeyUpdate Notification..");
+		NSLog(@"Posting HotKeyRefresh Notification..");
 	}
-	else if (postNotificationName == @"AutoUpdate")
+	else if (postNotificationName == @"AutoRefresh")
 	{
-		NSLog(@"Posting AutoUpdate Notification..");
+		NSLog(@"Posting AutoRefresh Notification..");
+	}
+	else if (postNotificationName == @"ManualRefresh")
+	{
+		NSLog(@"Manual Refresh...");
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:postNotificationName object: nil];
@@ -94,6 +98,7 @@
 	[self performSelector:@selector(fancyInit:) withObject:@"e  " afterDelay:1.8];
 	[self performSelector:@selector(fancyInit:) withObject:@"   " afterDelay:2.1];
 	[self performSelector:@selector(fancyInit:) withObject:version afterDelay:2.4];
+	
 }
 
 -(void)awakeFromNib
@@ -102,13 +107,18 @@
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	
 	[nc addObserver:self
-		   selector:@selector(update:) 
-			   name:@"HotKeyUpdate"
+		   selector:@selector(refresh:) 
+			   name:@"HotKeyRefresh"
 			 object:nil];
 	
 	[nc addObserver:self
-		   selector:@selector(update:) 
-			   name:@"AutoUpdate"
+		   selector:@selector(refresh:) 
+			   name:@"AutoRefresh"
+			 object:nil];
+	
+	[nc addObserver:self
+		   selector:@selector(refresh:)
+			   name:@"ManualRefresh"
 			 object:nil];
 	
 	//Create the NSStatusBar and set its length
@@ -126,15 +136,13 @@
 	hotkeyFullOrError =[NSSound soundNamed:@"doh"];
 	[hotkeyFullOrError setVolume:0.3];
 	
-	
-	
 	timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:NLTRefreshIntervalKey]
 											 target:self
-										   selector:@selector(autoUpdate:)
+										   selector:@selector(autoRefresh:)
 										   userInfo:nil
 											repeats:YES];
 	//[self  updateTitle:@"NL":[NSColor blueColor]];
-	//[self postNotification:@"AutoUpdate"];
+	//[self postNotification:@"AutoRefresh"];
 }
 
 -(void)updateTitle:(NSString *)string:(NSColor *)color
@@ -147,15 +155,15 @@
 									 nil]]];
 }
 
--(void)update:(id)sender
+-(void)refresh:(id)sender
 {
-	if (updateInProgress == YES)
+	if (refreshInProgress == YES)
 	{
-		NSLog(@"Another update is already in progress, aborting.");
+		NSLog(@"Another refresh is already in progress, aborting.");
 		return;
 	}
 	
-	updateInProgress = YES;
+	refreshInProgress = YES;
 	[self updateTitle:@"U!":[NSColor grayColor]];
 	
 	// Create the request.
@@ -226,21 +234,21 @@
 			bypassAutoCopy = NO;
 		}
 	}
-	isUpdated = YES;
-	[self performSelector:@selector(updateSuccess:) withObject:nil afterDelay:1.0];
+	isRefreshed = YES;
+	[self performSelector:@selector(refreshSuccess:) withObject:nil afterDelay:1.0];
 }
 
--(void)updateSuccess:(id)sender
+-(void)refreshSuccess:(id)sender
 {
-	updateInProgress = NO;
+	refreshInProgress = NO;
 }
 
 -(void)processError:(NSString *)error
 {
 	[self updateTitle:error:[NSColor redColor]];
 	//[statusItem updateTitle:error];
-	isUpdated = NO;
-	updateInProgress = NO;
+	isRefreshed = NO;
+	refreshInProgress = NO;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -278,11 +286,6 @@
 	[self processError:@"E4"];
 }
 
--(IBAction)refresh:(id)sender
-{
-	[self postNotification:@"AutoUpdate"];
-}
-
 -(void)generateAttributedTitle
 {
 	float players = [playerCount intValue];
@@ -301,11 +304,16 @@
 }
 
 /**
- * Other menuItems' actions
+ * MenuItem Actions
  * NOTE: Quit menuItem has its own function
  *       created automatically by Interface
  *       Builder.
  */
+
+-(IBAction)refreshAction:(id)sender
+{
+	[self postNotification:@"ManualRefresh"];
+}
 
 -(IBAction)copyToClipboard:(id)sender
 {
@@ -317,9 +325,9 @@
 -(IBAction)toggleAutoRefresh:(id)sender
 {
 	
-	if (autoUpdate) {
+	if (autoRefresh) {
 		[timer invalidate];
-		autoUpdate = NO;
+		autoRefresh = NO;
 		[sender setState:NSOffState];
 		
 	}
@@ -328,10 +336,10 @@
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
 												 target:self
-											   selector:@selector(update:)
+											   selector:@selector(refresh:)
 											   userInfo:nil
 												repeats:YES];
-		autoUpdate = YES;
+		autoRefresh = YES;
 		[sender setState:NSOnState];
 	}
 	
@@ -347,7 +355,7 @@
 	else {
 		autoCopy = YES;
 		[sender setState:NSOnState];
-		[self postNotification:@"AutoUpdate"];
+		[self postNotification:@"ManualRefresh"];
 	}
 }
 
@@ -355,7 +363,7 @@
 {
 	
 	NSInteger tag = [item tag];
-	if (tag == copyGameNameItem && isUpdated == NO)
+	if (tag == copyGameNameItem && isRefreshed == NO)
 		return NO;
 	else
 		return YES;
