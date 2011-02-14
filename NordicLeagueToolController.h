@@ -19,8 +19,8 @@
 
 	PreferenceController *preferenceController;
 	
-	NSSound *hotkeySuccess;
-	NSSound *hotkeyFullOrError;
+	//NSSound *hotkeySuccess;
+	//NSSound *hotkeyFullOrError;
 	
 }
 
@@ -62,6 +62,6 @@ id hotkeyMonitor;
 @property (retain) NSMenu *statusMenu;
 @property (retain) NSStatusItem *statusItem;
 @property (retain) PreferenceController *preferenceController;
-@property (retain) NSSound *hotkeySuccess;
-@property (retain) NSSound *hotkeyFullOrError;
+//@property (retain) NSSound *hotkeySuccess;
+//@property (retain) NSSound *hotkeyFullOrError;
 @end

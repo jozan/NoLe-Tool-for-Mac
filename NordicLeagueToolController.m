@@ -36,8 +36,8 @@
 	[statusItem release];
 	[gameName release];
 	[playerCount release];
-	[hotkeySuccess release];
-	[hotkeyFullOrError release];
+	//[hotkeySuccess release];
+	//[hotkeyFullOrError release];
 	[preferenceController release];
 	
 	[receivedData release];
@@ -131,11 +131,12 @@
 	[statusItem setMenu:statusMenu];
 	[statusItem setEnabled:YES];
 	
+	/*
 	hotkeySuccess = [NSSound soundNamed:@"mmmm"];
 	[hotkeySuccess setVolume:0.3];
 	hotkeyFullOrError =[NSSound soundNamed:@"doh"];
 	[hotkeyFullOrError setVolume:0.3];
-	
+	*/
 	timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:NLTRefreshIntervalKey]
 											 target:self
 										   selector:@selector(autoRefresh:)
@@ -226,12 +227,24 @@
 		
 		if (bypassAutoCopy)
 		{
+			NSSpeechSynthesizer *speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
+			[speechSynth setVolume:0.2];
+			
 			if ([playerCount isEqualToString:@"10"])
-				[hotkeyFullOrError play];
+			{
+				[speechSynth startSpeakingString:@"Full house"];
+				//[hotkeyFullOrError play];
+			}
 			else
-				[hotkeySuccess play];
+			{	
+				NSString *speakPlayers = [NSString stringWithFormat:@"%@ players", playerCount]; 
+				[speechSynth startSpeakingString:speakPlayers];
+				//[hotkeySuccess play];
+			}
 			
 			bypassAutoCopy = NO;
+			
+			[speechSynth release];
 		}
 	}
 	isRefreshed = YES;
@@ -332,13 +345,14 @@
 		
 	}
 	else {
-		[self update:nil];
+		[timer invalidate];
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		timer = [NSTimer scheduledTimerWithTimeInterval:[defaults floatForKey:NLTRefreshIntervalKey]
 												 target:self
 											   selector:@selector(refresh:)
 											   userInfo:nil
 												repeats:YES];
+		
 		autoRefresh = YES;
 		[sender setState:NSOnState];
 	}
@@ -412,6 +426,6 @@
 @synthesize statusMenu;
 @synthesize statusItem;
 @synthesize preferenceController;
-@synthesize hotkeySuccess;
-@synthesize hotkeyFullOrError;
+//@synthesize hotkeySuccess;
+//@synthesize hotkeyFullOrError;
 @end
