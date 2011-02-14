@@ -20,7 +20,7 @@ extern NSString * const NLTGameNameKey;
 
 - (BOOL)gameNameValue;
 - (float)refreshTimeIntervalValue;
-- (void)savePrefs;
+- (void)saveSettingsToUserDefaults;
 - (BOOL)getSelectedTagFromMatrix;
 - (void)resetMatrix:(BOOL)qualification;
 

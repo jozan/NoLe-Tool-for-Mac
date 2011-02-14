@@ -235,6 +235,10 @@
 				[speechSynth startSpeakingString:@"Full house"];
 				//[hotkeyFullOrError play];
 			}
+			else if ([playerCount isEqualToString:@"1"])
+			{
+				[speechSynth startSpeakingString:@"1 player"];
+			}
 			else
 			{	
 				NSString *speakPlayers = [NSString stringWithFormat:@"%@ players", playerCount]; 
