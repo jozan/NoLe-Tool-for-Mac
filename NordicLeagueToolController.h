@@ -8,37 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
+#import <Sparkle/Sparkle.h>
 
 @class PreferenceController;
 
+
 @interface NordicLeagueToolController : NSObject {
-	
 	/* Our outlets which allow us to access the interface */
 	IBOutlet NSMenu *statusMenu;
 	NSStatusItem *statusItem;
-
-	PreferenceController *preferenceController;
-	
-	//NSSound *hotkeySuccess;
-	//NSSound *hotkeyFullOrError;
-	
+	PreferenceController *preferenceController;	
 }
-
-NSString *gameName = @"No game name copied!";
-NSString *playerCount = @"NA";
-
-
-NSPasteboard *pasteBoard = nil;
-//NSAttributedString *aString = nil;
-NSMutableData *receivedData;
-
-BOOL refreshInProgress = NO;
-BOOL isRefreshed = NO;
-BOOL autoRefresh = YES;
-BOOL autoCopy = NO;
-BOOL bypassAutoCopy = NO;
-NSTimer *timer = nil;
-id hotkeyMonitor;
 
 - (void)refresh:(id)sender;
 - (void)refreshSuccess:(id)sender;
@@ -49,6 +29,12 @@ id hotkeyMonitor;
 - (void)generateAttributedTitle;
 - (void)fancyInit:(id)sender;
 - (void)prettyIntro;
+
+// Sent when a valid update is found by the update driver.
+- (void)updater:(SUUpdater *)updater didFindValidUpdate:(SUAppcastItem *)update;
+
+// Sent when a valid update is not found.
+- (void)updaterDidNotFindUpdate:(SUUpdater *)update;
 
 - (IBAction)refreshAction:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;
@@ -62,6 +48,17 @@ id hotkeyMonitor;
 @property (retain) NSMenu *statusMenu;
 @property (retain) NSStatusItem *statusItem;
 @property (retain) PreferenceController *preferenceController;
-//@property (retain) NSSound *hotkeySuccess;
-//@property (retain) NSSound *hotkeyFullOrError;
+
 @end
+
+NSString *gameName = @"No game name copied!";
+NSString *playerCount = @"NA";
+NSPasteboard *pasteBoard = nil;
+NSMutableData *receivedData;
+NSTimer *timer = nil;
+BOOL refreshInProgress = NO;
+BOOL isRefreshed = NO;
+BOOL autoRefresh = YES;
+BOOL autoCopy = NO;
+BOOL bypassAutoCopy = NO;
+id hotkeyMonitor;

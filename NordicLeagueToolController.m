@@ -25,7 +25,7 @@
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:NLTGameNameKey];
 	
 	// Register the dictionary of defaults
-	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues ];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
 
 -(void)dealloc
@@ -36,21 +36,31 @@
 	[statusItem release];
 	[gameName release];
 	[playerCount release];
-	//[hotkeySuccess release];
-	//[hotkeyFullOrError release];
 	[preferenceController release];
-	
 	[receivedData release];
 	
 	[super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+-(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+	
+	//[[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:NO];
+	// need to make some better handling here. This is just to force it to check for updates at start.
+	//[[SUUpdater sharedUpdater] setUpdateCheckInterval:20.0];
+	//[[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
+	//[[SUUpdater sharedUpdater] resetUpdateCycle];
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	hotkeyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent* event){
 		if (([event keyCode] == 49) && ([event modifierFlags] & NSControlKeyMask) && ([event modifierFlags] & NSCommandKeyMask)) {
 			[self postNotification:@"HotKeyRefresh"];
 		};
 	}];
+	
+	// Only enable autoupates again if user has choosen it. do some check?
+	
+	//[[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
 }
 
 -(void)autoRefresh:(NSTimer *)timer
@@ -68,15 +78,15 @@
 		else
 			bypassAutoCopy = YES;
 		
-		NSLog(@"Posting HotKeyRefresh Notification..");
+		//NSLog(@"Posting HotKeyRefresh Notification..");
 	}
 	else if (postNotificationName == @"AutoRefresh")
 	{
-		NSLog(@"Posting AutoRefresh Notification..");
+		//NSLog(@"Posting AutoRefresh Notification..");
 	}
 	else if (postNotificationName == @"ManualRefresh")
 	{
-		NSLog(@"Manual Refresh...");
+		//NSLog(@"Manual Refresh...");
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:postNotificationName object: nil];
@@ -103,6 +113,11 @@
 
 -(void)awakeFromNib
 {
+	[[SUUpdater sharedUpdater] setDelegate:self];
+	[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+	
+	[self performSelector:@selector(refreshSuccess:) withObject:nil afterDelay:1.0];
+	
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	
@@ -131,12 +146,6 @@
 	[statusItem setMenu:statusMenu];
 	[statusItem setEnabled:YES];
 	
-	/*
-	hotkeySuccess = [NSSound soundNamed:@"mmmm"];
-	[hotkeySuccess setVolume:0.3];
-	hotkeyFullOrError =[NSSound soundNamed:@"doh"];
-	[hotkeyFullOrError setVolume:0.3];
-	*/
 	timer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:NLTRefreshIntervalKey]
 											 target:self
 										   selector:@selector(autoRefresh:)
@@ -144,6 +153,7 @@
 											repeats:YES];
 	//[self  updateTitle:@"NL":[NSColor blueColor]];
 	//[self postNotification:@"AutoRefresh"];
+	
 }
 
 -(void)updateTitle:(NSString *)string:(NSColor *)color
@@ -318,6 +328,23 @@
 		[self updateTitle:playerCount:[NSColor colorWithDeviceRed:r green:g blue:b alpha:15.0]];
 	}
 		
+}
+
+
+- (void)updater:(SUUpdater *)updater didFindValidUpdate:(SUAppcastItem *)update {
+	NSSpeechSynthesizer *speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
+	[speechSynth setVolume:0.2];
+	[speechSynth startSpeakingString:@"New update available!"];
+	[speechSynth release];
+	//NSLog(@"Found update!");
+}
+
+-(void)updaterDidNotFindUpdate:(SUUpdater *)update {
+	NSSpeechSynthesizer *speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
+	[speechSynth setVolume:0.2];
+	[speechSynth startSpeakingString:@"No updates found,"];
+	[speechSynth release];
+	//NSLog(@"No new updates!");
 }
 
 /**

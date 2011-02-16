@@ -6,11 +6,28 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3509707A130B289100DB7986 /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3509707E130B28C000DB7986 /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				35097079130B289100DB7986 /* ShellScript */,
+			);
+			dependencies = (
+				3509708B130B292B00DB7986 /* PBXTargetDependency */,
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		35097043130B26E000DB7986 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35097042130B26E000DB7986 /* Sparkle.framework */; };
+		35097047130B26FD00DB7986 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35097042130B26E000DB7986 /* Sparkle.framework */; };
+		35097078130B285400DB7986 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 35097077130B285400DB7986 /* dsa_pub.pem */; };
+		350970DB130B2C0100DB7986 /* Release Notes in Resources */ = {isa = PBXBuildFile; fileRef = 35097072130B283700DB7986 /* Release Notes */; };
 		3523371E123B81CD0008F610 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3523371D123B81CD0008F610 /* Carbon.framework */; };
-		3523382A123C59010008F610 /* mmmm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 35233829123C59010008F610 /* mmmm.wav */; };
-		3523383C123C5B1F0008F610 /* doh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3523383B123C5B1F0008F610 /* doh.wav */; };
 		7C0DC19E120C252400DBBCED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC19D120C252400DBBCED /* SystemConfiguration.framework */; };
 		7C0DC1A2120C255000DBBCED /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A1120C255000DBBCED /* libz.1.1.3.dylib */; };
 		7C0DC1A4120C256C00DBBCED /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0DC1A3120C256C00DBBCED /* CoreServices.framework */; };
@@ -24,6 +41,29 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3509708A130B292B00DB7986 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = "NordicLeague Tool";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35097046130B26F600DB7986 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				35097047130B26FD00DB7986 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -33,9 +73,10 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* NordicLeague Tool_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NordicLeague Tool_Prefix.pch"; sourceTree = "<group>"; };
+		35097042130B26E000DB7986 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		35097072130B283700DB7986 /* Release Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Release Notes"; sourceTree = "<group>"; };
+		35097077130B285400DB7986 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		3523371D123B81CD0008F610 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		35233829123C59010008F610 /* mmmm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mmmm.wav; sourceTree = "<group>"; };
-		3523383B123C5B1F0008F610 /* doh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = doh.wav; sourceTree = "<group>"; };
 		7C0DC19D120C252400DBBCED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7C0DC1A1120C255000DBBCED /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		7C0DC1A3120C256C00DBBCED /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -60,6 +101,7 @@
 				7C0DC1A2120C255000DBBCED /* libz.1.1.3.dylib in Frameworks */,
 				7C0DC1A4120C256C00DBBCED /* CoreServices.framework in Frameworks */,
 				3523371E123B81CD0008F610 /* Carbon.framework in Frameworks */,
+				35097043130B26E000DB7986 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +124,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35097042130B26E000DB7986 /* Sparkle.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -132,9 +175,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35097077130B285400DB7986 /* dsa_pub.pem */,
+				35097072130B283700DB7986 /* Release Notes */,
 				7C1B89A7125359CC00103D5A /* noletool.icns */,
-				3523383B123C5B1F0008F610 /* doh.wav */,
-				35233829123C59010008F610 /* mmmm.wav */,
 				7CFF47EB1212ECC4001F2F76 /* Credits.rtf */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -162,6 +205,8 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				35097046130B26F600DB7986 /* CopyFiles */,
+				3509706F130B280E00DB7986 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -193,6 +238,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* NordicLeague Tool */,
+				3509707A130B289100DB7986 /* Distribution */,
 			);
 		};
 /* End PBXProject section */
@@ -202,17 +248,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350970DB130B2C0100DB7986 /* Release Notes in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				7CFF47EC1212ECC4001F2F76 /* Credits.rtf in Resources */,
-				3523382A123C59010008F610 /* mmmm.wav in Resources */,
-				3523383C123C5B1F0008F610 /* doh.wav in Resources */,
 				7C871E5C12426E330022EC1D /* Preferences.xib in Resources */,
 				7C1B89A8125359CC00103D5A /* noletool.icns in Resources */,
+				35097078130B285400DB7986 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3509706F130B280E00DB7986 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "Increment build number.";
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" Info.plist";
+		};
+		35097079130B289100DB7986 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\nset -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nSHORT_VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleShortVersionString)\nDOWNLOAD_BASE_URL=\"http://www.nordicleague.eu/apps\"\nRELEASENOTES=$(cat \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Resources/Release Notes\")\n\nARCHIVE_FILENAME=\"$PROJECT_NAME.$SHORT_VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"NordicLeague Tool Private Key\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(LC_TIME=en_US date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file(\"-\")->findvalue(q(//string[preceding-sibling::key[1] = \"NOTE\"]))') \\\n\t| openssl enc -base64\n)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\ncat <<EOF\n\t\t<item>\n\t\t\t<title>Version $SHORT_VERSION</title>\n\t  \t\t<description><![CDATA[\n\t\t\t\t$RELEASENOTES\n  \t\t\t]]></description>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\tsparkle:shortVersionString=\"$SHORT_VERSION\"\n\t\t\t\tsparkle:minimumSystemVersion=\"10.6\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\necho scp \"'$HOME/svn/my-cool-app/build/Release/$ARCHIVE_FILENAME'\" www.example.com:download/\necho scp \"'$WD/appcast.xml'\" www.example.com:web/software/my-cool-app/appcast.xml";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -226,6 +302,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3509708B130B292B00DB7986 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* NordicLeague Tool */;
+			targetProxy = 3509708A130B292B00DB7986 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -247,6 +331,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3509707B130B289100DB7986 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribution;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		3509707C130B289100DB7986 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribution;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		3509707D130B289100DB7986 /* Release (alpha) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Distribution;
+			};
+			name = "Release (alpha)";
+		};
 		7C7ADC1212141B2600F7A3BA /* Release (alpha) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,7 +441,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CURRENT_PROJECT_VERSION = 35;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -348,10 +461,11 @@
 				CURRENT_PROJECT_VERSION = 35;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "";
+				SDKROOT = macosx10.6;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				VERSION_INFO_SUFFIX = "";
@@ -361,6 +475,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3509707E130B28C000DB7986 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3509707B130B289100DB7986 /* Debug */,
+				3509707C130B289100DB7986 /* Release */,
+				3509707D130B289100DB7986 /* Release (alpha) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "NordicLeague Tool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
