@@ -78,15 +78,15 @@
 		else
 			bypassAutoCopy = YES;
 		
-		//NSLog(@"Posting HotKeyRefresh Notification..");
+		NSLog(@"Posting HotKeyRefresh Notification..");
 	}
 	else if (postNotificationName == @"AutoRefresh")
 	{
-		//NSLog(@"Posting AutoRefresh Notification..");
+		NSLog(@"Posting AutoRefresh Notification..");
 	}
 	else if (postNotificationName == @"ManualRefresh")
 	{
-		//NSLog(@"Manual Refresh...");
+		NSLog(@"Manual Refresh...");
 	}
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:postNotificationName object: nil];
