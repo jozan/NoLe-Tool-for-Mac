@@ -15,7 +15,7 @@
 
 @implementation NordicLeagueToolController
 
-+(void)initialize
++ (void)initialize
 {
 	// Create a dictionary
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
@@ -28,7 +28,7 @@
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
 
--(void)dealloc
+- (void)dealloc
 {
 	[NSEvent removeMonitor:hotkeyMonitor];
 	[timer invalidate];
@@ -42,7 +42,7 @@
 	[super dealloc];
 }
 
--(void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
 	
 	//[[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:NO];
 	// need to make some better handling here. This is just to force it to check for updates at start.
@@ -51,7 +51,7 @@
 	//[[SUUpdater sharedUpdater] resetUpdateCycle];
 }
 
--(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	hotkeyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent* event){
 		if (([event keyCode] == 49) && ([event modifierFlags] & NSControlKeyMask) && ([event modifierFlags] & NSCommandKeyMask)) {
 			[self postNotification:@"HotKeyRefresh"];
@@ -63,12 +63,12 @@
 	//[[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
 }
 
--(void)autoRefresh:(NSTimer *)timer
+- (void)autoRefresh:(NSTimer *)timer
 {
 	[self postNotification:@"AutoRefresh"];
 }
 
--(void)postNotification:(NSString *)postNotificationName
+- (void)postNotification:(NSString *)postNotificationName
 {
 	
 	if (postNotificationName == @"HotKeyRefresh")
@@ -92,11 +92,11 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:postNotificationName object: nil];
 }
 
--(void)fancyInit:(id)sender
+- (void)fancyInit:(id)sender
 {
 	[self updateTitle:(NSString*)sender:[NSColor colorWithDeviceRed:0 green:0 blue:0.9 alpha:1]];
 }
--(void)prettyIntro
+- (void)prettyIntro
 {
 	NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 	[self updateTitle:@" ":[NSColor darkGrayColor]];
@@ -111,7 +111,7 @@
 	
 }
 
--(void)awakeFromNib
+- (void)awakeFromNib
 {
 	[[SUUpdater sharedUpdater] setDelegate:self];
 	[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
@@ -156,7 +156,7 @@
 	
 }
 
--(void)updateTitle:(NSString *)string:(NSColor *)color
+- (void)updateTitle:(NSString *)string:(NSColor *)color
 {
 	[statusItem setAttributedTitle:[[NSAttributedString alloc]
 									initWithString:string attributes:
@@ -166,7 +166,7 @@
 									 nil]]];
 }
 
--(void)refresh:(id)sender
+- (void)refresh:(id)sender
 {
 	if (refreshInProgress == YES)
 	{
@@ -204,7 +204,7 @@
 	
 }
 
--(void)processData:(NSString*)data
+- (void)processData:(NSString*)data
 {
 	if ([data length] < 1)
 	{
@@ -243,7 +243,6 @@
 			if ([playerCount isEqualToString:@"10"])
 			{
 				[speechSynth startSpeakingString:@"Full house"];
-				//[hotkeyFullOrError play];
 			}
 			else if ([playerCount isEqualToString:@"1"])
 			{
@@ -253,7 +252,6 @@
 			{	
 				NSString *speakPlayers = [NSString stringWithFormat:@"%@ players", playerCount]; 
 				[speechSynth startSpeakingString:speakPlayers];
-				//[hotkeySuccess play];
 			}
 			
 			bypassAutoCopy = NO;
@@ -265,12 +263,12 @@
 	[self performSelector:@selector(refreshSuccess:) withObject:nil afterDelay:1.0];
 }
 
--(void)refreshSuccess:(id)sender
+- (void)refreshSuccess:(id)sender
 {
 	refreshInProgress = NO;
 }
 
--(void)processError:(NSString *)error
+- (void)processError:(NSString *)error
 {
 	[self updateTitle:error:[NSColor redColor]];
 	//[statusItem updateTitle:error];
@@ -313,7 +311,7 @@
 	[self processError:@"E4"];
 }
 
--(void)generateAttributedTitle
+- (void)generateAttributedTitle
 {
 	float players = [playerCount intValue];
 	
@@ -339,7 +337,7 @@
 	//NSLog(@"Found update!");
 }
 
--(void)updaterDidNotFindUpdate:(SUUpdater *)update {
+- (void)updaterDidNotFindUpdate:(SUUpdater *)update {
 	NSSpeechSynthesizer *speechSynth = [[NSSpeechSynthesizer alloc] initWithVoice:nil];
 	[speechSynth setVolume:0.2];
 	[speechSynth startSpeakingString:@"No updates found,"];
@@ -354,19 +352,19 @@
  *       Builder.
  */
 
--(IBAction)refreshAction:(id)sender
+- (IBAction)refreshAction:(id)sender
 {
 	[self postNotification:@"ManualRefresh"];
 }
 
--(IBAction)copyToClipboard:(id)sender
+- (IBAction)copyToClipboard:(id)sender
 {
 	pasteBoard = [NSPasteboard generalPasteboard];
 	[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
 	[pasteBoard setString:gameName forType:NSStringPboardType];
 }
 
--(IBAction)toggleAutoRefresh:(id)sender
+- (IBAction)toggleAutoRefresh:(id)sender
 {
 	
 	if (autoRefresh) {
@@ -390,7 +388,7 @@
 	
 }
 
--(IBAction)toggleAutoCopy:(id)sender
+- (IBAction)toggleAutoCopy:(id)sender
 {
 	
 	if (autoCopy) {
@@ -424,8 +422,6 @@
 - (IBAction)openAbout:(id)sender
 {
 	[NSApp activateIgnoringOtherApps:YES];
-	//[NSApp orderFrontStandardAboutPanel:YES];
-	
 	[NSApp orderFrontStandardAboutPanel:(id)sender];
 }
 
@@ -446,7 +442,7 @@
 - (IBAction)hidePreferencePanel:(id)sender
 {
 	// Is preferenceController nil?
-	if ( preferenceController) {
+	if ( preferenceController ) {
 		[NSApp activateIgnoringOtherApps:NO];
 		[preferenceController close];
 		NSLog(@"Hiding %@", preferenceController);
@@ -457,6 +453,4 @@
 @synthesize statusMenu;
 @synthesize statusItem;
 @synthesize preferenceController;
-//@synthesize hotkeySuccess;
-//@synthesize hotkeyFullOrError;
 @end
