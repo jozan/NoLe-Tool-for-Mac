@@ -12,4 +12,4 @@ A helper tool for Nordic League Mac users written in Objective-C.
 This is our free time project to learn Cocoa/Objective-C programming and on the side of that produce a working Mac application for our relatively small DotA league (http://www.nordicleague.eu).
 
 
-Copyright © 2010-2011 Johan and Fredrik
+Copyright Â© 2010-2011 Johan and Fredrik
